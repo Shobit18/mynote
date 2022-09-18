@@ -1,0 +1,105 @@
+      {/* <div id="testimonial">
+        <div className="wrapper testimonial-section">
+          <div className="container text-center">
+            <div className="text-center pb-4">
+              <h2>#Testimonial</h2>
+            </div>
+            <div className="row">
+              <div className="col-sm-12 col-lg-10 offset-g-1">
+                <div id="carouselExampleIndicators" className="carousel slide" data-bs-ride="carousel">
+                  <div className="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                  </div>
+                  <div className="carousel-inner">
+                    <div className="carousel-item active">
+                      {/* <div className="carousel-caption">                <img src="images/review/SAVE_20210413_194724.jpg"> */}
+                      <p>One of the best sizzler ive ever tasted. Every component of sizzler were delicious. The pasta coupled with kofta were just amazing 🤤. Must visit 💯</p>
+                      <h5>Shobit Kunwar </h5>
+                    </div>
+                  </div>
+
+                  <div className="carousel-item">
+                    <div className="carousel-caption">
+                      {/* <img src="images/com.jpg"> */}
+                      <p>Food is very good and quality of Paneer is outstanding. Their starter are outstanding Kebab platter is one of the best must try it.</p>
+                      <h5>Sagar Sharma </h5>
+                    </div>
+                  </div>
+                  <div className="carousel-item">
+                    <div className="carousel-caption">
+                      {/* <img src="images/review/SAVE_20210413_194724.jpg"> */}
+                      <p>There, the manager himself takes order from the customers. He knows everything about dishes, and quantities served there and will suggest you best based on your choice of flavour. Food is just amazing. One of the best ambience for dinner you will find in entire locality.</p>
+                      <h5>Krina Rajvi</h5>
+                    </div>
+                  </div>
+                </div>
+                <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                  <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span className="visually-hidden">Previous</span>
+                </button>
+                <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                  <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span className="visually-hidden">Next</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      testimonial p-6 border-2 border-solid flex hover:border-indigo-400 hover:bg-indigo-100 transition-colors duration-300"
+
+
+      <div className="flex"> 
+            
+        <div className=" flex mx-auto px-4">
+          <div className="w-1/2">
+            <div className="">
+              <div className="">
+                <img src={localData.image} alt="profile image" className="w-full h-full object-cover" />
+              </div>
+              <div>
+                <p className="text-gray-600">{localData.name}</p>
+                <div className="text-gray-900 font-bold uppercase mt-6">{localData.content}</div>
+                <div className="text-gray-600">{localData.designation}</div>
+              </div>
+            </div>
+          </div>
+      </div>  
+    </div>  
+
+
+    <div className="items-center absolute bottom-0 h-10 bg-gray-200 w-full">
+        <h1 className="items-center"> Copyright <span>&copy;</span> {currentDate}</h1>
+        
+        {/* <p>Hello from Footer</p> */}
+    </div>
+
+
+    {/* <div className="w-max h-max p-4 rounded overflow-hidden shadow-lg ml-48">
+      <img className="w-full h-96 rounded-md" src={getDataFromLocal.banner.bannerImage} alt="Sunset in the mountains" />
+      <div className="px-6 py-4">
+        <div className="font-bold text-xl mb-2">{getDataFromLocal.banner.title}</div>
+        <p className="text-gray-700 text-base">
+          {getDataFromLocal.banner.description}
+        </p>
+      </div>
+      <div className="px-6 h-max pt-4 pb-2">
+        <Link className="rounded-full m-3 p-4 items-center bg-orange-400" to="/about">{getDataFromLocal.banner.button}</Link>
+      </div>
+    </div>
+
+    <div className="w-max h-max p-4 rounded overflow-hidden shadow-lg ml-48">
+      <img className="w-full h-96" src={getDataFromLocal.banner.bannerImage} alt="Sunset in the mountains" />
+      <div className="px-6 py-4">
+        <div className="font-bold text-xl mb-2">{getDataFromLocal.banner.title}</div>
+        <p className="text-gray-700 text-base">
+          {getDataFromLocal.banner.description}
+        </p>
+      </div>
+      <div className="px-6 pt-4 pb-2">
+        <Link className="rounded-full m-3 p-4 items-center bg-orange-400" to="/contact">{getDataFromLocal.banner.button}</Link>
+      </div>
+    </div> */}
