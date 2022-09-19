@@ -20,17 +20,10 @@ function Header() {
           getDataFromLocal.map((localData: any) => {
             return (
               <div>
-                 {/* { localData.checked ?  */}
-              {/* <div>   */}
-               
-               {/* <div>  */}
-                {/* <Link to= {localData.routes}>
-                  { localData.isVisible ? localData.title: "" }
-                </Link> */}
-                {/* <h1>{localData.title}</h1> */}
-                {/* </div>  */}
-               {/* </div>  : ""} */}
-               <h1>{localData.title}</h1>
+                 { localData.checked ? 
+             <div>
+               <Link to="localData.routes">{localData.title}</Link>
+             </div>: ""}
               </div>
             )
           })

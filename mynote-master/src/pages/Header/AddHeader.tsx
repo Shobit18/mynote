@@ -18,7 +18,7 @@ function AddHeader() {
         setRoutes(e.target.value)
     }
     const handleCheckedChange = (e:any) => {
-        setRoutes(e.target.value)
+        setChecked(true)
     }
    
     const handleSubmit = () => {
@@ -38,7 +38,7 @@ function AddHeader() {
             <input type="text" value={title} onChange={(e) => handleTitleChange(e)} /> <br />
             <label>routes</label>
             <input type="text" value={routes} onChange={(e) => handleRoutesChange(e)}  />   <br />
-            <input type="checkbox"  onChange={(e) => handleCheckedChange(true)}  />   <br />
+            <input type="checkbox"  onChange={(e) => handleCheckedChange(e)}  />   <br />
             
             <button onClick={handleSubmit}  > ADD Page</button>
         </>

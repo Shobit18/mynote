@@ -41,18 +41,18 @@ function AddTestimonial() {
     return (
         <>
             <h1> AddTestimonials BLOG </h1>
-            <label>Name</label>
-            <input value={name} placeholder="name" onChange={(e) => handleNameChange(e)} /> <br />
-            <label>Designation</label>
-            <input value={designation} placeholder="design" onChange={(e) => handleDesignationChange(e)}  />   <br />
-            <label>Content</label>
-            <input value={content} placeholder="Content" onChange={(e) => handleContentChange(e)}  />   <br />
             <label>Image</label>
-            <input value={image} placeholder="image" onChange={(e) => handleImageChange(e)} /> <br />
+            <input type="file" value={image} placeholder="image" onChange={(e) => handleImageChange(e)} className="h-24 w-28 p-2 border-2" /> <br />
+            <label>Name</label>
+            <input type="text" value={name} placeholder="name" onChange={(e) => handleNameChange(e)} className="m-2 p-2 w-96"/> <br />
+            <label>Designation</label>
+            <input type="text" value={designation} placeholder="design" onChange={(e) => handleDesignationChange(e)} className="m-2 p-2 w-96"  />   <br />
+            <label>Content</label>
+            <input type="text" value={content} placeholder="Content" onChange={(e) => handleContentChange(e)} className="m-2 p-2 w-96 h-48"  />   <br />
             <label>checkbox</label>
-            <input  placeholder="checkbox" onChange={(e) => handleCheckedChange(e)}  />   <br />
+            <input type="checkbox"   onChange={(e) => handleCheckedChange(e)}  />   <br />
             
-            <button onClick={handleSubmit}  > SUBMIT </button>
+            <button onClick={handleSubmit} className="bg-blue-200 m-2 p-2"  > SUBMIT </button>
         </>
     )
 }

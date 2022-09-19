@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import Sidebar from "../../components/sidebar/sidebar";
 // import HeaderModal from "./HeaderModal";
 import HomeHeader from "./HomeHeader";
 
@@ -78,6 +79,7 @@ const Header = () => {
                 {/* <button onClick={saveData} >Edit</button> */}
 
             {/* </div> */} 
+            <Sidebar />
 <HomeHeader />            
 </div>
 

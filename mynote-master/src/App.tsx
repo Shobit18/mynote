@@ -43,10 +43,10 @@ function App() {
       {/* <BrowserRouter> */}
         <Routes>
           <Route path="/">
-            <Route index element={<Home />} />
+            {/* <Route index element={<Home />} /> */}
             {/* <Route index element={<HeaderHome />} /> */}
             {/* <Route index element={<HomePage />} /> */}
-            {/* <Route index element={<HomeHeader />} /> */}
+            <Route index element={<HomeHeader />} />
             <Route path="/AddHeader" element={<AddHeader />} />
           <Route path="/EditHeader" element={<EditHeader />} />
 

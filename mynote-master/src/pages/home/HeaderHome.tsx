@@ -13,7 +13,7 @@ const HeaderHome = () => {
      <div className="w-auto">
       <Sidebar />
       </div> 
-      <div className="homeContainer  w-screen h-screen h-96 ">
+      <div className="homeContainer  w-screen  h-96 ">
         {/* <Navbar /> */}
       {/* <div className="bannerImage h-screen">
       <div className="h-max p-4 rounded overflow-hidden shadow-lg ml-32 ">

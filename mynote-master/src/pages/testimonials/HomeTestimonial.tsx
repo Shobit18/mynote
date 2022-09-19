@@ -46,7 +46,9 @@ function HomeTestimonial() {
                 testimonial && testimonial.length > 0 ?
                     testimonial.map((testimonial:any, testimonialIndex:any) => {
                         return (
-                            <div className="border-2">
+                           <div>
+                            {testimonial.checked? 
+                            <div className="border-2 w-full m-2 p-2 ">
                                 <div className=" p-2 m-2 w-24 h-24 border-2">
                                    image : {testimonial?.image}
                                 </div>
@@ -62,7 +64,8 @@ function HomeTestimonial() {
                                 </div>
                                 <button className="bg-blue-200 p-2" onClick={() => handleEdit(testimonialIndex)} >Edit</button>
                                 <button className="bg-red-200 p-2" onClick={() => handleDelete(testimonialIndex)} >Delete</button>
-                            </div>
+                            </div> : ""}
+                           </div> 
                         )
                     })
                     :
