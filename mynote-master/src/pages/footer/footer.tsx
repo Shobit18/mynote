@@ -34,28 +34,6 @@ function Footer() {
               })
             }
           </div>
-          {/* <div className="mx-48 w-1/2">
-              {
-                getfooterData.map((localData: any) => {
-                  return (
-                    <div>
-                      <h2 className="font-bold">{localData.title}</h2>
-                    </div>
-                  )
-                })
-              }
-            </div>
-            <div className="mx-48 w-1/2">
-              {
-                getfooterData.map((localData: any) => {
-                  return (
-                    <div>
-                      <h2 className="font-bold">{localData.title}</h2>
-                    </div>
-                  )
-                })
-              }
-            </div> */}
         </div>
       </div>
       <div className="ml-56 items-center">

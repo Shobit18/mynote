@@ -1,37 +1,42 @@
-// import { Button, input, Typography } from "@mui/material"
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 
 
 function EditTestimonial() {
     const navigate = useNavigate()
-    const [name, setName] = useState('');
-    const [designation, setDesignation] = useState('');
-    const [content, setContent] = useState('');
-    const [image, setImage] = useState('');
-    const [checked, setChecked] = useState(false);
 
-    const handleNameChange = (e:any) => {
+    let getIndex: any = localStorage.getItem('testimonial');
+    getIndex = JSON.parse(getIndex);
+
+    const editIndex: any = localStorage.getItem('editIndex');
+
+    const [name, setName] = useState(getIndex[editIndex].name);
+    const [designation, setDesignation] = useState(getIndex[editIndex].designation);
+    const [content, setContent] = useState(getIndex[editIndex].content);
+    const [image, setImage] = useState(getIndex[editIndex].image);
+    const [checked, setChecked] = useState(getIndex[editIndex].checked);
+
+    const handleNameChange = (e: any) => {
         setName(e.target.value)
     }
-    const handleDesignationChange = (e:any) => {
+    const handleDesignationChange = (e: any) => {
         setDesignation(e.target.value)
     }
-    const handleContentChange = (e:any) => {
+    const handleContentChange = (e: any) => {
         setContent(e.target.value)
     }
-    const handleImageChange = (e:any) => {
+    const handleImageChange = (e: any) => {
         setImage(e.target.value)
     }
-    const handleCheckedChange = (e:any) => {
+    const handleCheckedChange = (e: any) => {
         setChecked(true)
     }
 
     const handleEdit = () => {
         console.log({ name, designation, content, image, checked, index: localStorage.getItem('editIndex') })
-        let getTestimonial = localStorage.getItem('testimonial') && (localStorage.getItem('testimonial')||"[]").length > 0 ? JSON.parse(localStorage.getItem('testimonial') || "[]") : []
+        let getTestimonial = localStorage.getItem('testimonial') && (localStorage.getItem('testimonial') || "[]").length > 0 ? JSON.parse(localStorage.getItem('testimonial') || "[]") : []
 
-        const _testimonial = getTestimonial.map((testimonial:any, testimonialInIndex:any) => {
+        const _testimonial = getTestimonial.map((testimonial: any, testimonialInIndex: any) => {
             if (testimonialInIndex == localStorage.getItem('editIndex')) {
                 return { name, designation, content, image, checked }
             } else {
@@ -40,24 +45,25 @@ function EditTestimonial() {
         })
         console.log(_testimonial)
         localStorage.setItem('testimonial', JSON.stringify(_testimonial))
-        navigate('/HomeTestimonial')
+        navigate('/admin/HomeTestimonial')
     }
 
     return (
         <>
             <h1> Edit testimonial </h1>
-            <label>Name</label>
-            <input value={name} onChange={(e) => handleNameChange(e)}  /> <br />
-            <label>Designation</label>
-            <input value={designation} onChange={(e) => handleDesignationChange(e)}  /> <br />
-            <label>Content</label>
-            <input value={content} onChange={(e) => handleContentChange(e)}  /> <br />
-            <label>Image</label>
-            <input value={image} onChange={(e) => handleImageChange(e)}  /> <br />
-            <label>Checkbox</label>
-            <input  onChange={(e) => handleCheckedChange(e)}  />
-            <button onClick={handleEdit} > Edit </button>
-
+            <form className="bg-blue-200 m-2 p-2">
+                <label>Image</label>
+                <input type="file" value={image} onChange={(e) => handleImageChange(e)} className=" m-2 p-2 h-32 w-28 border-2" /> <br />
+                <label>Name</label>
+                <input type="text" value={name} onChange={(e) => handleNameChange(e)} className=" m-2 p-2  border-2" /> <br />
+                <label>Designation</label>
+                <input type="text" value={designation} onChange={(e) => handleDesignationChange(e)} className=" m-2 p-2  border-2" /> <br />
+                <label>Content</label>
+                <input type="text" value={content} onChange={(e) => handleContentChange(e)} className=" m-2 p-2  border-2" /> <br />
+                <label>Checkbox</label>
+                <input type="checkbox" onChange={(e) => handleCheckedChange(e)} className=" m-2 p-2  border-2" /><br />
+                <button onClick={handleEdit} className=" m-2 p-2  border-2 bg-green-200" > Edit Testimonial </button>
+            </form>
         </>
     )
 }

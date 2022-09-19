@@ -3,19 +3,28 @@ import { ReactDOM } from "react";
 
 
 function Testimonial() {
-    const getDataFromLocal = JSON.parse(localStorage.getItem("testimonials") || "[]");
+    const getDataFromLocal = JSON.parse(localStorage.getItem("testimonial") || "[]");
     console.log("test", +getDataFromLocal.name)
   return (
     <div>
         {/* <h1>Hello: {data}</h1> */}
+        <hr
+        style={{
+          background: 'lime',
+          color: 'lime',
+          borderColor: 'lime',
+          height: '3px',
+        }}
+      />
         <h3 className="font-bold mx-auto text-3xl m-4 p-4 ">Testimonials </h3>
         <div className="grid grid-cols-2 gap-4 shadow-md border-slate-600">
         {
-          // getDataFromLocal.isChecked ? 
+
           getDataFromLocal.map((localData: any) => {
+            if(localData.checked) {
             return (
             <div>  
-              { localData.checked ? 
+        
               <div className="w-full border-2 m-2 shadow-md rounded-md">
                 
                 <div className=" m-4">
@@ -30,9 +39,9 @@ function Testimonial() {
                   </div>
                 
                 </div> 
-              </div> : ""}
+              </div> 
             </div>  
-            )
+            )}
           })
         }
       </div>

@@ -1,11 +1,12 @@
 // import { Button, input, Typography } from "@mui/material"
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
+import Sidebar from "../../components/sidebar/sidebar";
 
 
 
 function AddBanner() {
-    const navigate = useNavigate()
+    const navigate = useNavigate();
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [image, setImage] = useState('');
@@ -31,22 +32,30 @@ function AddBanner() {
 
         localStorage.setItem('banner', JSON.stringify([..._banner, { title, description, image, button }]))
 
-        navigate('/HomeBanner')
+        navigate('/admin/HomePage')
     }
 
     return (
-        <>
+        <div className="flex">
+        <div>
+            <Sidebar />
+        </div>
+        <div>
+
             <h1> Adds Banner </h1>
+          <form className="bg-blue-200 shadow-md">  
+            <label>image </label>
+            <input type="file" value={image} onChange={(e) => handleImageChange(e)} className="m-2 p-2 h-32 w-28 border-2" /> <br />
             <label>Title</label>
-            <input value={title} onChange={(e) => handleTitleChange(e)} /> <br />
+            <input type="text" value={title} onChange={(e) => handleTitleChange(e)} className="m-2 p-2" /> <br />
             <label>Description</label>
-            <input value={description} onChange={(e) => handleDescChange(e)}  />   <br />
-            <label>Image</label>
-            <input value={image} onChange={(e) => handleImageChange(e)} /> <br />
-            <label>button </label>
-            <input value={button} onChange={(e) => handleButtonChange(e)}  />   <br />
-            <button onClick={handleSubmit}  > ADD </button>
-        </>
+            <input type="text" value={description} onChange={(e) => handleDescChange(e)} className="m-2 p-2 "  />   <br />
+            <label>button</label>
+            <input type="text" value={button} onChange={(e) => handleButtonChange(e)} className="m-2 p-2" />   <br />
+            <button onClick={handleSubmit}  className="bg-green-200 p-2 m-2"> ADD  banner</button>
+            </form> 
+        </div>
+        </div>
     )
 }
 

@@ -3,11 +3,8 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom"
 
 import "./sidebar.scss";
-// import NavModal from "../navbar/NavModal";
-import HeaderModal from "../../pages/Header/HeaderModal";
-
 const Sidebar = () => {
-  // const [modalOpen, setModalOpen] = useState(false);
+
   const navigate = useNavigate()
 
   return (
@@ -19,14 +16,14 @@ const Sidebar = () => {
         <ul>
           <p className="title">Dashboard</p>
           <li>
-            {/* <span>Dashboard</span> */}
+            
           
           </li>
         <li>
-         <Link to="/" className="title">Header</Link>
+         <Link to="/admin/HomeHeader" className="title">Header</Link>
           </li>
             <li>
-          <Link to="/admin/homePage" className="title">Home</Link>
+          <Link to="/admin/HomePage" className="title">Home</Link>
         </li>
         <li>
           <Link to="/admin/contact" className="title">Contact</Link>
@@ -52,7 +49,7 @@ const Sidebar = () => {
 
 <button 
                 onClick={() => {
-                    navigate('/AddHeader')
+                    navigate('/admin/AddHeader')
                 }}
                 className ="rounded-md bg-blue-200 p-2"
                  > ADD header Content </button>

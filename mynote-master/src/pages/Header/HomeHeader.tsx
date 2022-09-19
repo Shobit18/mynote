@@ -1,6 +1,7 @@
 // import { Button } from "@mui/material"
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
+import Sidebar from "../../components/sidebar/sidebar"
 
 
 function HomeHeader() {
@@ -25,22 +26,27 @@ function HomeHeader() {
 
     const handleEdit = (headerIndex:any) => {
         localStorage.setItem('editIndex', headerIndex)
-        navigate('/EditHeader')
+        navigate('/admin/EditHeader')
     }
 
 
 
     return (
-        <>
+        <div className="flex">
+        <div>
+            <Sidebar />
+        </div>
+       <div>
+        
             <br />
             <button 
                 onClick={() => {
-                    navigate('/AddHeader')
+                    navigate('/admin/AddHeader')
                 }}
                 className ="rounded-md bg-blue-200 p-2"
                  > ADD header Content </button>
             <br />
-
+                <h1 className="font-bold m-2">Menu</h1>
             {
                 header && header.length > 0 ?
                     header.map((header:any, headerIndex:any) => {
@@ -49,7 +55,10 @@ function HomeHeader() {
                                 <div className="m-2 p-2 ">
                                    Title: {header?.title }</div>
                                 <div className="m-2 p-2 ">
-                                    routes: {header?.routes}
+                                    routes: {header.routes}
+                                </div>
+                                <div className="m-2 p-2 ">
+                                    checkbox: {(header.checked) ? "checked": "unchecked"}
                                 </div>
                                 
                                 <button className="bg-blue-200 p-2" onClick={() => handleEdit(headerIndex)} >Edit</button>
@@ -60,7 +69,8 @@ function HomeHeader() {
                     :
                     'No Data found'
             }
-        </>
+            </div> 
+        </div>
     )
 }
 

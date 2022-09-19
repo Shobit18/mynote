@@ -1,4 +1,3 @@
-// import { Button, input, Typography } from "@mui/material"
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 
@@ -28,19 +27,19 @@ function AddHeader() {
 
         localStorage.setItem('header', JSON.stringify([..._header, { title, routes, checked }]))
 
-        navigate('/')
+        navigate('/admin/HomeHeader')
     }
 
     return (
         <>
             <h1> Adds header </h1>
             <label>Title</label>
-            <input type="text" value={title} onChange={(e) => handleTitleChange(e)} /> <br />
+            <input type="text" value={title} onChange={(e) => handleTitleChange(e)}  className="p-2 m-2 border-2"/> <br />
             <label>routes</label>
-            <input type="text" value={routes} onChange={(e) => handleRoutesChange(e)}  />   <br />
-            <input type="checkbox"  onChange={(e) => handleCheckedChange(e)}  />   <br />
+            <input type="text" value={routes} onChange={(e) => handleRoutesChange(e)}  className="p-2 m-2 border-2" />   <br />
+            <input type="checkbox"  onChange={(e) => handleCheckedChange(e)} className="p-2 m-2"  />   <br />
             
-            <button onClick={handleSubmit}  > ADD Page</button>
+            <button onClick={handleSubmit}  className="bg-blue-200 p-2 m-2"> ADD Page</button>
         </>
     )
 }

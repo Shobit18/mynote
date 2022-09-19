@@ -12,47 +12,51 @@ function AddTestimonial() {
     const [image, setImage] = useState('');
     const [checked, setChecked] = useState(false);
 
-    const handleNameChange = (e:any) => {
+    const handleNameChange = (e: any) => {
         setName(e.target.value)
     }
-    const handleDesignationChange = (e:any) => {
+    const handleDesignationChange = (e: any) => {
         setDesignation(e.target.value)
     }
-    const handleContentChange = (e:any) => {
+    const handleContentChange = (e: any) => {
         setContent(e.target.value)
     }
-    const handleImageChange = (e:any) => {
+    const handleImageChange = (e: any) => {
         setImage(e.target.value)
     }
-    const handleCheckedChange = (e:any) => {
+    const handleCheckedChange = (e: any) => {
         setChecked(true)
     }
 
     const handleSubmit = () => {
+        debugger
         console.log({ name, designation, content, image, checked })
 
         const _testimonial = localStorage.getItem('testimonial') && (localStorage.getItem('testimonial') || "[]").length > 0 ? JSON.parse(localStorage.getItem('testimonial') || "[]") : []
 
-        localStorage.setItem('testimonial', JSON.stringify([..._testimonial, { name, designation, content, image, checked }]))
+        localStorage.setItem('testimonial', JSON.stringify([..._testimonial, { id: _testimonial.length, name, designation, content, image, checked }]))
 
-        navigate('/HomeTestimonial')
+        navigate('/admin/HomePage')
     }
 
     return (
         <>
-            <h1> AddTestimonials BLOG </h1>
-            <label>Image</label>
-            <input type="file" value={image} placeholder="image" onChange={(e) => handleImageChange(e)} className="h-24 w-28 p-2 border-2" /> <br />
-            <label>Name</label>
-            <input type="text" value={name} placeholder="name" onChange={(e) => handleNameChange(e)} className="m-2 p-2 w-96"/> <br />
-            <label>Designation</label>
-            <input type="text" value={designation} placeholder="design" onChange={(e) => handleDesignationChange(e)} className="m-2 p-2 w-96"  />   <br />
-            <label>Content</label>
-            <input type="text" value={content} placeholder="Content" onChange={(e) => handleContentChange(e)} className="m-2 p-2 w-96 h-48"  />   <br />
-            <label>checkbox</label>
-            <input type="checkbox"   onChange={(e) => handleCheckedChange(e)}  />   <br />
-            
-            <button onClick={handleSubmit} className="bg-blue-200 m-2 p-2"  > SUBMIT </button>
+            <h1> Add Testimonials  </h1>
+            <form className="bg-blue-200">
+                <label>Image</label>
+                <input type="file" value={image} placeholder="image" onChange={(e) => handleImageChange(e)} className="h-24 w-28 p-2 border-2" /> <br />
+                <label>Name</label>
+                <input type="text" value={name} placeholder="name" onChange={(e) => handleNameChange(e)} className="m-2 p-2 w-96" /> <br />
+                <label>Designation</label>
+                <input type="text" value={designation} placeholder="design" onChange={(e) => handleDesignationChange(e)} className="m-2 p-2 w-96" />   <br />
+                <label>Content</label>
+                <input type="text" value={content} placeholder="Content" onChange={(e) => handleContentChange(e)} className="m-2 p-2 w-96 h-48" />   <br />
+                <label>checkbox</label>
+                <input type="checkbox" onChange={(e) => handleCheckedChange(e)} />   <br />
+
+                <button onClick={handleSubmit} className="bg-green-200 m-2 p-2"  > ADD Testimonial </button>
+
+            </form>
         </>
     )
 }

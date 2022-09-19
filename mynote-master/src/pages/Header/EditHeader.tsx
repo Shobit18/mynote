@@ -1,12 +1,13 @@
-// import { Button, input, Typography } from "@mui/material"
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
+import Header from "./Header";
 
 
 function EditHeader() {
     const navigate = useNavigate()
     const [title, setTitle] = useState('');
     const [routes, setRoutes] = useState('');
+    const [checked, setChecked] = useState(false);
     
 
 
@@ -16,32 +17,38 @@ function EditHeader() {
     const handleRoutesChange = (e:any) => {
         setRoutes(e.target.value)
     }
+    const handleCheckedChange = (e:any) => {
+        setChecked(true)
+    }
 
 
     const handleEdit = () => {
-        console.log({ title, routes,  index: localStorage.getItem('editIndex') })
+        console.log({ title, routes, checked,  index: localStorage.getItem('editIndex') })
         let header = localStorage.getItem('header') && (localStorage.getItem('header')||"[]").length > 0 ? JSON.parse(localStorage.getItem('header') || "[]") : []
 
         const _header = header.map((header:any, headerInIndex:any) => {
             if (headerInIndex == localStorage.getItem('editIndex')) {
-                return { title, routes }
+                return { title, routes, checked }
             } else {
                 return header
             }
         })
         console.log(_header)
         localStorage.setItem('header', JSON.stringify(_header))
-        navigate('/HomeHeader')
+        navigate('/admin/HomeHeader')
     }
 
     return (
         <>
             <h1> Edit header </h1>
-            <input value={title} placeholder="title" onChange={(e) => handleTitleChange(e)}  /> <br />
-            <input value={routes} placeholder="routes" onChange={(e) => handleRoutesChange(e)}  /><br />
+           <form className="m-2 p-2 bg-blue-200">
 
-            <button onClick={handleEdit} > Edit </button>
+            <input type="text" value={title} placeholder="title" onChange={(e) => handleTitleChange(e)}  className="m-2 p-2" /> <br />
+            <input type="text" value={routes} placeholder="routes" onChange={(e) => handleRoutesChange(e)} className="m-2 p-2" /><br />
+            <input type="checkbox" onChange={(e) => handleCheckedChange(e)}  /><br />
 
+            <button onClick={handleEdit} className="m-2 p-2 bg-green-200" > Edit Header </button>
+            </form> 
         </>
     )
 }

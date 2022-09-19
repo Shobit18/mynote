@@ -26,36 +26,38 @@ function HomeBanner() {
 
     const handleEdit = (bannerIndex:any) => {
         localStorage.setItem('editIndex', bannerIndex)
-        navigate('/EditBanner')
+        navigate('/admin/EditBanner')
     }
 
 
 
     return (
-        <>
+        <div>
             <br />
             <button
                 onClick={() => {
-                    navigate('/AddBanner')
+                    navigate('/admin/AddBanner')
                 }}
                 className="bg-blue-200 p-2 m-2"
                  > ADD Banner Content </button>
             <br />
+                <div className="border-2" >
 
+               
             {
                 banner && banner.length > 0 ?
                     banner.map((banner:any, bannerIndex:any) => {
                         return (
-                            <div className="1px solid">
+                            <div className=" m-2 p-2 boder-2  shadow-md">
                                 <div className="m-2 p-2 border-2 w-24 h-24">
-                                   image: {banner?.image }</div>
+                                   image: {banner.image }</div>
                                 <div className="m-2 p-2  border-2 w-96">
-                                   Title: {banner?.title }</div>
+                                   Title: {banner.title }</div>
                                 <div className="m-2 p-2 border-2 w-96 h-28">
-                                    Description: {banner?.description}
+                                    Description: {banner.description}
                                 </div>
-                                <div className="m-2 p-2 border-2 rounded-md h-11 w-16">
-                                    buton: {banner?.buton}
+                                <div className="m-2 p-2 border-2 rounded-md w-32">
+                                    buton: {banner.button}
                                 </div>
                                 <button className="bg-blue-200 p-2" onClick={() => handleEdit(bannerIndex)} >Edit</button>
                                 <button className="bg-blue-200 p-2" onClick={() => handleDelete(bannerIndex)} >Delete</button>
@@ -65,7 +67,8 @@ function HomeBanner() {
                     :
                     'No Data found'
             }
-        </>
+             </div>
+        </div>
     )
 }
 
