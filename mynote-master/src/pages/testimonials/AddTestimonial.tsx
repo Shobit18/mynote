@@ -1,6 +1,8 @@
 // import { Button, input, Typography } from "@mui/material"
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
+import Sidebar from "../../components/sidebar/sidebar";
+import HomeFooter from "../footer/HomeFooter";
 
 
 
@@ -25,11 +27,11 @@ function AddTestimonial() {
         setImage(e.target.value)
     }
     const handleCheckedChange = (e: any) => {
-        setChecked(true)
+        setChecked(e.target.value)
     }
 
     const handleSubmit = () => {
-        debugger
+        // debugger
         console.log({ name, designation, content, image, checked })
 
         const _testimonial = localStorage.getItem('testimonial') && (localStorage.getItem('testimonial') || "[]").length > 0 ? JSON.parse(localStorage.getItem('testimonial') || "[]") : []
@@ -41,22 +43,33 @@ function AddTestimonial() {
 
     return (
         <>
-            <h1> Add Testimonials  </h1>
-            <form className="bg-blue-200">
-                <label>Image</label>
-                <input type="file" value={image} placeholder="image" onChange={(e) => handleImageChange(e)} className="h-24 w-28 p-2 border-2" /> <br />
-                <label>Name</label>
-                <input type="text" value={name} placeholder="name" onChange={(e) => handleNameChange(e)} className="m-2 p-2 w-96" /> <br />
-                <label>Designation</label>
-                <input type="text" value={designation} placeholder="design" onChange={(e) => handleDesignationChange(e)} className="m-2 p-2 w-96" />   <br />
-                <label>Content</label>
-                <input type="text" value={content} placeholder="Content" onChange={(e) => handleContentChange(e)} className="m-2 p-2 w-96 h-48" />   <br />
-                <label>checkbox</label>
-                <input type="checkbox" onChange={(e) => handleCheckedChange(e)} />   <br />
+            <div className="flex">
+                <div>
+                    <Sidebar />
+                </div>
+                <div>
 
-                <button onClick={handleSubmit} className="bg-green-200 m-2 p-2"  > ADD Testimonial </button>
 
-            </form>
+                    <h1> Add Testimonials  </h1>
+                    <form className="bg-blue-200">
+                        <label>Image</label>
+                        <input type="file" value={image} placeholder="image" onChange={(e) => handleImageChange(e)} className="h-24 w-28 p-2 border-2" /> <br />
+                        <label>Name</label>
+                        <input type="text" value={name} placeholder="name" onChange={(e) => handleNameChange(e)} className="m-2 p-2 w-96" /> <br />
+                        <label>Designation</label>
+                        <input type="text" value={designation} placeholder="design" onChange={(e) => handleDesignationChange(e)} className="m-2 p-2 w-96" />   <br />
+                        <label>Content</label>
+                        <input type="text" value={content} placeholder="Content" onChange={(e) => handleContentChange(e)} className="m-2 p-2 w-96 h-48" />   <br />
+                        <label>checkbox</label>
+                        <input type="checkbox" onChange={(e) => handleCheckedChange(e)} />   <br />
+
+                        <button onClick={handleSubmit} className="bg-green-200 m-2 p-2"  > ADD Testimonial </button>
+
+                    </form>
+                </div>
+            </div>
+            <hr className="w-screen" />
+            <HomeFooter />
         </>
     )
 }

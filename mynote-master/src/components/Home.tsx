@@ -38,6 +38,7 @@ function Home() {
       }
 
       <Testimonial />
+      <Footer />
 
     </div >
 

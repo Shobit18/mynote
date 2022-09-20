@@ -1,5 +1,7 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
+import Sidebar from "../../components/sidebar/sidebar";
+import HomeFooter from "../footer/HomeFooter";
 
 
 function EditTestimonial() {
@@ -29,13 +31,12 @@ function EditTestimonial() {
         setImage(e.target.value)
     }
     const handleCheckedChange = (e: any) => {
-        setChecked(true)
+        setChecked(e.target.value)
     }
 
     const handleEdit = () => {
-        console.log({ name, designation, content, image, checked, index: localStorage.getItem('editIndex') })
+        // console.log({ name, designation, content, image, checked, index: localStorage.getItem('editIndex') })
         let getTestimonial = localStorage.getItem('testimonial') && (localStorage.getItem('testimonial') || "[]").length > 0 ? JSON.parse(localStorage.getItem('testimonial') || "[]") : []
-
         const _testimonial = getTestimonial.map((testimonial: any, testimonialInIndex: any) => {
             if (testimonialInIndex == localStorage.getItem('editIndex')) {
                 return { name, designation, content, image, checked }
@@ -50,6 +51,13 @@ function EditTestimonial() {
 
     return (
         <>
+        <div className="flex">
+            <div>
+                <Sidebar />
+            </div>
+            <div>
+
+
             <h1> Edit testimonial </h1>
             <form className="bg-blue-200 m-2 p-2">
                 <label>Image</label>
@@ -61,9 +69,13 @@ function EditTestimonial() {
                 <label>Content</label>
                 <input type="text" value={content} onChange={(e) => handleContentChange(e)} className=" m-2 p-2  border-2" /> <br />
                 <label>Checkbox</label>
-                <input type="checkbox" onChange={(e) => handleCheckedChange(e)} className=" m-2 p-2  border-2" /><br />
+                <input type="checkbox" value={checked} onChange={(e) => handleCheckedChange(e)} className=" m-2 p-2  border-2" /><br />
                 <button onClick={handleEdit} className=" m-2 p-2  border-2 bg-green-200" > Edit Testimonial </button>
             </form>
+            </div>
+        </div>
+        <hr className="w-screen" />
+        <HomeFooter />
         </>
     )
 }

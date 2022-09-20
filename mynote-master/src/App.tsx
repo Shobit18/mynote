@@ -20,13 +20,18 @@ import HomeBanner from './pages/banner/HomeBanner';
 import AddHeader from './pages/Header/AddHeader';
 import EditHeader from './pages/Header/EditHeader';
 import HomeHeader from './pages/Header/HomeHeader';
+
 import Footer from './pages/footer/footer';
+
+import AddFooter from './pages/footer/AddFooter';
+import EditFooter from './pages/footer/EditFooter';
+import HomeFooter from './pages/footer/HomeFooter';
 
 function App() {
 
   const loginData = {
-      username: "shobit",
-      password: 123
+    username: "shobit",
+    password: 123
   }
 
   localStorage.setItem("loginData", JSON.stringify(loginData))
@@ -41,34 +46,40 @@ function App() {
     <div className="App">
 
       <Header />
-    <div className='flex'>
-      <div>
+      <div className='flex'>
+        <div>
           {/* <Sidebar /> */}
+        </div>
+        <div>
+
+          <Routes>
+            <Route path="/">
+              <Route index element={<Home />} />
+              <Route path="/admin" element={<Login />} />
+
+              <Route path="/admin/HomePage" element={<HomePage />} />
+              <Route path="/admin/HomeHeader" element={<HomeHeader />} />
+              <Route path="/admin/AddHeader" element={<AddHeader />} />
+              <Route path="/admin/EditHeader" element={<EditHeader />} />
+
+              <Route path="/admin/HomeTestimonial" element={<HomeTestimonial />} />
+              <Route path="/admin/AddTestimonial" element={<AddTestimonial />} />
+              <Route path="/admin/EditTestimonial" element={<EditTestimonial />} />
+
+
+              <Route path="/admin/HomeBanner" element={<HomeBanner />} />
+              <Route path="/admin/AddBanner" element={<AddBanner />} />
+              <Route path="/admin/EditBanner" element={<EditBanner />} />
+
+
+              <Route path="/admin/HomeFooter" element={<HomeFooter />} />
+              <Route path="/admin/AddFooter" element={<AddFooter />} />
+              <Route path="/admin/EditFooter" element={<EditFooter />} />
+            </Route>
+          </Routes>
+        </div>
       </div>
-    <div>
-
-    <Routes>
-      <Route path="/">
-        <Route index element={<Home />} />
-        <Route path="/admin/HomePage" element={<HomePage />} />
-        <Route path="/admin/HomeHeader" element={<HomeHeader />} />
-        <Route path="/admin/AddHeader" element={<AddHeader />} />
-      <Route path="/admin/EditHeader" element={<EditHeader />} />
-
-        <Route path="/admin/HomeTestimonial" element={<HomeTestimonial />} />
-        <Route path="/admin/AddTestimonial" element={<AddTestimonial />} />
-      <Route path="/admin/EditTestimonial" element={<EditTestimonial />} />
-
-        
-        <Route path="/admin/HomeBanner" element={<HomeBanner />} />
-        <Route path="/admin/AddBanner" element={<AddBanner />} />
-      <Route path="/admin/EditBanner" element={<EditBanner />} />       
-        <Route path="/admin" element={<Login />} />
-    </Route>
-    </Routes>
-    </div>
-      </div>  
-     <Footer /> 
+      {/* <Footer /> */}
       {/* <Route path="/" element={<Home />}>Home</Route>
         <Route path="/About" element={<About />}>About</Route>
         <Route path="/Contact" element={<Contact />}>Contact</Route>

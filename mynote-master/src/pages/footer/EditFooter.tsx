@@ -1,19 +1,17 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import Sidebar from "../../components/sidebar/sidebar";
-import HomeFooter from "../footer/HomeFooter";
-import Header from "./Header";
+import HomeFooter from "./HomeFooter";
 
-
-function EditHeader() {
+function EditFooter() {
     const navigate = useNavigate()
 
-    let getIndex: any = localStorage.getItem('header');
+    let getIndex: any = localStorage.getItem('footer');
     getIndex = JSON.parse(getIndex);
     const editIndex: any = localStorage.getItem('editIndex');
 
     const [title, setTitle] = useState(getIndex[editIndex].title);
-    const [routes, setRoutes] = useState(getIndex[editIndex].routes);
+    const [routes, setRoutes] = useState(getIndex[editIndex].title);
     const [checked, setChecked] = useState(getIndex[editIndex].checked);
 
 
@@ -31,38 +29,36 @@ function EditHeader() {
 
     const handleEdit = () => {
         console.log({ title, routes, checked, index: localStorage.getItem('editIndex') })
-        let header = localStorage.getItem('header') && (localStorage.getItem('header') || "[]").length > 0 ? JSON.parse(localStorage.getItem('header') || "[]") : []
+        let footer = localStorage.getItem('footer') && (localStorage.getItem('footer') || "[]").length > 0 ? JSON.parse(localStorage.getItem('footer') || "[]") : []
 
-        const _header = header.map((header: any, headerInIndex: any) => {
-            if (headerInIndex == localStorage.getItem('editIndex')) {
+        const _footer = footer.map((footer: any, footerInIndex: any) => {
+            if (footerInIndex == localStorage.getItem('editIndex')) {
                 return { title, routes, checked }
             } else {
-                return header
+                return footer
             }
         })
-        console.log(_header)
-        localStorage.setItem('header', JSON.stringify(_header))
-        navigate('/admin/HomeHeader')
+        console.log(_footer)
+        localStorage.setItem('footer', JSON.stringify(_footer))
+        navigate('/admin/HomePage')
     }
 
     return (
         <>
             <div className="flex">
-                <div >
+                <div>
                     <Sidebar />
                 </div>
                 <div>
-
-                    <h1> Edit header </h1>
+                    <h1> Edit footer </h1>
                     <form className="m-2 p-2 bg-blue-200">
 
                         <input type="text" value={title} placeholder="title" onChange={(e) => handleTitleChange(e)} className="m-2 p-2" /> <br />
                         <input type="text" value={routes} placeholder="routes" onChange={(e) => handleRoutesChange(e)} className="m-2 p-2" /><br />
                         <input type="checkbox" onChange={(e) => handleCheckedChange(e)} /><br />
 
-                        <button onClick={handleEdit} className="m-2 p-2 bg-green-200" > Edit Header </button>
+                        <button onClick={handleEdit} className="m-2 p-2 bg-green-200" > Edit footer </button>
                     </form>
-
                 </div>
             </div>
             <hr className="w-screen" />
@@ -71,4 +67,4 @@ function EditHeader() {
     )
 }
 
-export default EditHeader
+export default EditFooter

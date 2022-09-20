@@ -2,6 +2,7 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import Sidebar from "../../components/sidebar/sidebar";
+import HomeFooter from "../footer/HomeFooter";
 
 
 function EditBanner() {
@@ -9,7 +10,10 @@ function EditBanner() {
 
     let getIndex: any = localStorage.getItem('banner');
     getIndex = JSON.parse(getIndex);
+    console.log("index: ", +getIndex);
+    
     const editIndex: any = localStorage.getItem('editIndex');
+    console.log("edit" +editIndex)
 
 
     const [title, setTitle] = useState(getIndex[editIndex].title);
@@ -48,6 +52,7 @@ function EditBanner() {
     }
 
     return (
+        <>
         <div className="flex">
             <div>
                 <Sidebar />
@@ -69,6 +74,9 @@ function EditBanner() {
                 </div>
             </div>
         </div>
+        <hr className="w-screen" />
+        <HomeFooter />
+        </>  
     )
 }
 

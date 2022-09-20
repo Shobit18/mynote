@@ -1,7 +1,7 @@
-// import { Button, input, Typography } from "@mui/material"
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import Sidebar from "../../components/sidebar/sidebar";
+import HomeFooter from "../footer/HomeFooter";
 
 
 
@@ -36,6 +36,7 @@ function AddBanner() {
     }
 
     return (
+       <>
         <div className="flex">
         <div>
             <Sidebar />
@@ -56,6 +57,9 @@ function AddBanner() {
             </form> 
         </div>
         </div>
+        <hr className="w-screen" />
+       <HomeFooter />
+       </>    
     )
 }
 

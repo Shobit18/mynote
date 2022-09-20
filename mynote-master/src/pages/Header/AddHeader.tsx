@@ -1,5 +1,7 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
+import Sidebar from "../../components/sidebar/sidebar";
+import HomeFooter from "../footer/HomeFooter";
 
 
 
@@ -25,13 +27,18 @@ function AddHeader() {
 
         const _header = localStorage.getItem('header') && (localStorage.getItem('header') || "[]").length > 0 ? JSON.parse(localStorage.getItem('header') || "[]") : []
 
-        localStorage.setItem('header', JSON.stringify([..._header, { title, routes, checked }]))
+        localStorage.setItem('header', JSON.stringify([..._header, { id: _header.length, title, routes, checked }]))
 
         navigate('/admin/HomeHeader')
     }
 
     return (
         <>
+        <div className="flex">
+            <div>
+                <Sidebar />
+            </div>
+            <div>
             <h1> Adds header </h1>
             <label>Title</label>
             <input type="text" value={title} onChange={(e) => handleTitleChange(e)}  className="p-2 m-2 border-2"/> <br />
@@ -40,6 +47,11 @@ function AddHeader() {
             <input type="checkbox"  onChange={(e) => handleCheckedChange(e)} className="p-2 m-2"  />   <br />
             
             <button onClick={handleSubmit}  className="bg-blue-200 p-2 m-2"> ADD Page</button>
+
+            </div>
+        </div>   
+        <hr className="w-screen" />
+        <HomeFooter />
         </>
     )
 }

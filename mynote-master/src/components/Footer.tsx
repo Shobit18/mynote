@@ -1,27 +1,34 @@
 import React from "react";
 import { ReactDOM } from "react";
+import { Link } from "react-router-dom";
 
 
 function Footer() {
-  const getDataFromLocal = JSON.parse(localStorage.getItem("constant") || "[]");
+  const getDataFromLocal = JSON.parse(localStorage.getItem("footer") || "[]");
   const currentDate = new Date().getFullYear();
 
   return (
-      <div className="space-x-6 text-xl h-72">
-        <div className=" p-16 w-full grid grid-cols-3 gap-4">
-          <div className="mx-48 flex">
-            <div className="mx-48 w-1/2">
+      <div className="">
+        <div className="">
+          <div className="">
+            <div className="m-12 p-2 grid grid-cols-3 gap-4">
               {
-                getDataFromLocal.footer.navItems.map((localData: any) => {
+                getDataFromLocal.map((localData: any) => {
+                  if(localData.checked) {
                   return (
                     <div>
+                      {/* <h2 className="font-bold">{localData.title}</h2> */}
+                      <Link to={localData.routes} className="">
                       <h2 className="font-bold">{localData.title}</h2>
+                      </Link>
+                      
                     </div>
                   )
+                  }
                 })
               }
             </div>
-            <div className="mx-48 w-1/2">
+            {/* <div className="mx-48 w-1/2">
               {
                 getDataFromLocal.footer.homeItems.map((localData: any) => {
                   return (
@@ -42,7 +49,7 @@ function Footer() {
                   )
                 })
               }
-            </div>
+            </div> */}
           </div>
         </div>
         <div className="ml-56 items-center">

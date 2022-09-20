@@ -20,7 +20,7 @@ function Header() {
             if(localData.checked)
             return (
               <div>
-                  <Link to="localData.routes">{localData.title}</Link>
+                  <Link to="localData.routes" className="font-bold">{localData.title}</Link>
              <div>
                
              </div>
