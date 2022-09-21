@@ -35,7 +35,7 @@ function EditHeader() {
 
         const _header = header.map((header: any, headerInIndex: any) => {
             if (headerInIndex == localStorage.getItem('editIndex')) {
-                return { title, routes, checked }
+                return {  title, routes, checked }
             } else {
                 return header
             }

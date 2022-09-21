@@ -7,11 +7,14 @@ import Footer from "../footer/footer"
 
 function HomeHeader() {
     const navigate = useNavigate()
-    const [header, setheader] = useState([])
+    const [header, setHeader] = useState([])
 
+    const UP = -1
+    const DOWN = 1
+    
     useEffect(() => {
         const header = localStorage.getItem('header') || "";
-        setheader(JSON.parse(header || "[]"));
+        setHeader(JSON.parse(header || "[]"));
     }, [header])
 
     const handleDelete = (headerOutIndex: any) => {
@@ -21,7 +24,7 @@ function HomeHeader() {
             }
         })
         console.log(_header)
-        setheader(_header)
+        setHeader(_header)
         localStorage.setItem('header', JSON.stringify(_header))
     }
 
@@ -30,6 +33,21 @@ function HomeHeader() {
         navigate('/admin/EditHeader')
     }
 
+const handleMove = (id:any, direction: any) => {
+    console.log("cliked")
+    const position = header.findIndex((i: any) => i.id === id)
+    if(position<0) {
+        console.log("items not found")
+    } else if(direction === UP && position === 0 || direction === DOWN && position === header.length - 1) {
+        return
+    }
+    const item = header[position]
+    const newItems = header.filter((i:any) => i.id !== id)
+    newItems.splice(position + direction, 0, item)
+
+    // this.setState({header, newItems})
+    localStorage.setItem('header', JSON.stringify(newItems))
+}
 
 
     return (
@@ -65,6 +83,8 @@ function HomeHeader() {
 
                                         <button className="bg-blue-200 p-2" onClick={() => handleEdit(headerIndex)} >Edit</button>
                                         <button className="bg-red-200 p-2" onClick={() => handleDelete(headerIndex)} >Delete</button>
+                                        <button className="bg-blue-200 p-2 m-2" onClick={() => handleMove(header.id, UP)}>Up</button>
+                                        <button className="bg-blue-200 p-2 m-2" onClick={() => handleMove(header.id, DOWN)}>Down</button>
                                     </div>
                                 )
                             })
