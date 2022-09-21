@@ -9,12 +9,7 @@ function Testimonial() {
     <div>
         {/* <h1>Hello: {data}</h1> */}
         <hr
-        style={{
-          background: 'lime',
-          color: 'lime',
-          borderColor: 'lime',
-          height: '3px',
-        }}
+       className="w-screen"
       />
         <h3 className="font-bold mx-auto text-3xl m-4 p-4 ">Testimonials </h3>
         <div className="grid grid-cols-2 gap-4 shadow-md border-slate-600">

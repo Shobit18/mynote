@@ -8,7 +8,7 @@ function Header() {
   // console.log("title" +getDataFromLocal.title)
  
   return (
-    <div className=" w-full flex justify-between bg-white h-28 shadow-md items-center">
+    <div className=" w-screen flex justify-between bg-white h-28 shadow-md items-center">
       <Link to="/" className=" ml-10 ">
 
        {/* <img src={getDataFromLocal.header.logo.url}  className="rounded-full h-16 w-16"/> */}

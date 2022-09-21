@@ -48,7 +48,7 @@ function HomePage() {
   
   return (
    <div> 
-    <div className=" flex w-max">
+    <div className=" flex w-screen">
       <Sidebar />
       <div className="  m-4 h-max">
       

@@ -4,6 +4,9 @@ function HomeTestimonial() {
     const navigate = useNavigate()
     const [testimonial, settestimonial] = useState([])
 
+    const UP = -1;
+    const DOWN = 1
+
     useEffect(() => {
         const testimonial = localStorage.getItem('testimonial') || "";
         settestimonial(JSON.parse(testimonial || "[]"));
@@ -24,6 +27,23 @@ function HomeTestimonial() {
         localStorage.setItem('editIndex', testimonialIndex)
         navigate("/admin/EditTestimonial")
     }
+    const handleMove = (id:any, direction: any) => {
+        console.log("cliked")
+        const position = testimonial.findIndex((i: any) => i.id === id)
+        if(position<0) {
+            console.log("items not found")
+        } else if(direction === UP && position === 0 || direction === DOWN && position === testimonial.length - 1) {
+            return
+        }
+        const item = testimonial[position]
+        const newItems = testimonial.filter((i:any) => i.id !== id)
+        newItems.splice(position + direction, 0, item)
+    
+        // this.setState({testimonial, newItems})
+        localStorage.setItem('testimonial', JSON.stringify(newItems))
+    }
+    
+
 
     return (
         <>
@@ -41,7 +61,7 @@ function HomeTestimonial() {
                     testimonial && testimonial.length > 0 ?
                         testimonial.map((testimonial: any, testimonialIndex: any) => {
                             return (
-                                <div className="p-2 m-2 shadow-md w-96">
+                                <div className="p-2 m-2 shadow-md ">
 
                                     <div className="border-2 w-full m-2 p-2 ">
                                         <div className=" p-2 m-2 w-24 h-24 border-2">
@@ -59,6 +79,8 @@ function HomeTestimonial() {
                                         </div>
                                         <button className="bg-blue-200 p-2" onClick={() => handleEdit(testimonialIndex)} >Edit</button>
                                         <button className="bg-red-200 p-2" onClick={() => handleDelete(testimonialIndex)} >Delete</button>
+                                        <button className="bg-red-200 p-2 m-2" onClick={() => handleMove(testimonial.id, UP)} >UP</button>
+                                        <button className="bg-red-200 p-2 m-2" onClick={() => handleMove(testimonial.id, DOWN)} >Down</button>
                                     </div>
                                 </div>
                             )
