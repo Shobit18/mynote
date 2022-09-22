@@ -31,7 +31,7 @@ function EditTestimonial() {
         setImage(e.target.value)
     }
     const handleCheckedChange = (e: any) => {
-        setChecked(e.target.value)
+        setChecked(!checked)
     }
 
     const handleEdit = () => {
@@ -39,14 +39,14 @@ function EditTestimonial() {
         let getTestimonial = localStorage.getItem('testimonial') && (localStorage.getItem('testimonial') || "[]").length > 0 ? JSON.parse(localStorage.getItem('testimonial') || "[]") : []
         const _testimonial = getTestimonial.map((testimonial: any, testimonialInIndex: any) => {
             if (testimonialInIndex == localStorage.getItem('editIndex')) {
-                return { name, designation, content, image, checked }
+                return {  name, designation, content, image, checked }
             } else {
                 return testimonial
             }
         })
         console.log(_testimonial)
         localStorage.setItem('testimonial', JSON.stringify(_testimonial))
-        navigate('/admin/HomeTestimonial')
+        navigate('/admin/HomePage')
     }
 
     return (

@@ -6,7 +6,9 @@ import Sidebar from "../../components/sidebar/sidebar"
 
 function HomeFooter() {
     const navigate = useNavigate()
-    const [footer, setFooter] = useState([])
+    const [footer, setFooter] = useState([]);
+    const [image, setImage] = useState('');
+    const [description, setDescription] = useState('');
 
     useEffect(() => {
         const footer = localStorage.getItem('footer') || "";
@@ -28,10 +30,18 @@ function HomeFooter() {
         localStorage.setItem('editIndex', footerIndex)
         navigate('/admin/EditFooter')
     }
-
-
+    // const handleImageChange =(e:any) => {
+    //     setImage(e.target.value)
+    // }
 
     return (
+       <div>
+        <div >
+            <form className="m-2 p-2">
+            <img src="https://picsum.photos/200/300" alt="gooterimage" className="m-2 rounded-full h-16 w-16"></img>
+            <textarea className="h-32 m-2 w-full" placeholder="description"></textarea>
+            </form> 
+        </div>
         <div className="flex">
             <div>
                 {/* <Sidebar /> */}
@@ -47,6 +57,7 @@ function HomeFooter() {
                 > ADD footer Content </button>
                 <br />
                 <h1 className="font-bold m-2">Menu</h1>
+                
                 <div className="grid grid-cols-3 gap-4">
 
                     {
@@ -55,7 +66,7 @@ function HomeFooter() {
                                 return (
                                     <div className="m-2  border-2 w-96">
                                         <div className="m-2 p-2 uppercase font-bold">
-                                            Title: {footer?.title}</div>
+                                            Title: {footer.title}</div>
                                         <div className="m-2 p-2 ">
                                             routes: {footer.routes}
                                         </div>
@@ -74,6 +85,7 @@ function HomeFooter() {
                 </div>
             </div>
         </div>
+        </div>     
     )
 }
 

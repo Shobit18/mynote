@@ -23,7 +23,7 @@ function EditFooter() {
         setRoutes(e.target.value)
     }
     const handleCheckedChange = (e: any) => {
-        setChecked(true)
+        setChecked(!checked)
     }
 
 

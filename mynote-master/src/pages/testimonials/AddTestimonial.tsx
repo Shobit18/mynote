@@ -27,7 +27,7 @@ function AddTestimonial() {
         setImage(e.target.value)
     }
     const handleCheckedChange = (e: any) => {
-        setChecked(e.target.value)
+        setChecked(!checked)
     }
 
     const handleSubmit = () => {

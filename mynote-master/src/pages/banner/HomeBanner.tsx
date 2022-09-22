@@ -49,11 +49,11 @@ function HomeBanner() {
                     banner.map((banner:any, bannerIndex:any) => {
                         return (
                             <div className=" m-2 p-2 boder-2  shadow-md">
-                                <div className="m-2 p-2 border-2 w-24 h-24">
+                                <div className="m-2 p-2 border-2 w-scroll h-scroll">
                                    image: {banner.image }</div>
                                 <div className="m-2 p-2  border-2 w-96">
                                    Title: {banner.title }</div>
-                                <div className="m-2 p-2 border-2 w-96 h-28">
+                                <div className="m-2 p-2 border-2 w-96 h-scroll">
                                     Description: {banner.description}
                                 </div>
                                 <div className="m-2 p-2 border-2 rounded-md w-32">

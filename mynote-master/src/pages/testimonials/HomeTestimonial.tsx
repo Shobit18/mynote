@@ -65,22 +65,23 @@ function HomeTestimonial() {
 
                                     <div className="border-2 w-full m-2 p-2 ">
                                         <div className=" p-2 m-2 w-24 h-24 border-2">
-                                            image : {testimonial.image}
+                                            {/* image : {testimonial.image} */}
+                                            <img src={testimonial.image} alt="upload image" />
                                         </div>
                                         <div className=" p-2 m-2 w-48 font-bold uppercase">
                                             Name: {testimonial.name}</div>
                                         <div className=" p-2 m-2 48 font-bold">
                                             Desi : {testimonial.designation}
                                         </div>
-                                        <div className=" p-2 m-2 48">
+                                        <div className=" p-2 m-2 w-48">
                                             content: {testimonial.content}</div>
                                         <div className=" p-2 m-2 ">
                                             checkbox : {(testimonial.checked) ? "checked": "unchecked"}
                                         </div>
                                         <button className="bg-blue-200 p-2" onClick={() => handleEdit(testimonialIndex)} >Edit</button>
                                         <button className="bg-red-200 p-2" onClick={() => handleDelete(testimonialIndex)} >Delete</button>
-                                        <button className="bg-red-200 p-2 m-2" onClick={() => handleMove(testimonial.id, UP)} >UP</button>
-                                        <button className="bg-red-200 p-2 m-2" onClick={() => handleMove(testimonial.id, DOWN)} >Down</button>
+                                        <button className="p-1 m-2  text-2xl rounded-md bg-green-200" onClick={() => handleMove(testimonial.id, UP)} >&#8593;</button>
+                                        <button className="p-1 m-2  text-2xl rounded-md bg-green-200" onClick={() => handleMove(testimonial.id, DOWN)} >&#8595;</button>
                                     </div>
                                 </div>
                             )

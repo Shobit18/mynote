@@ -20,9 +20,9 @@ function Home() {
           return (
 
             <div className="bg-no-repeat  w-screen p-4" >
-              <div className="w-96 h-max p-4 rounded overflow-hidden shadow-lg bannerImage ">
-                <img src="https://picsum.photos/600/600" alt="newimage" className="b-2 m-2 border-2 " />
-                <div className="px-6 py-4 mt-48">
+              <div className="w-screen h-max p-4 rounded overflow-hidden shadow-lg bannerImage ">
+                <img src="https://picsum.photos/600/600" alt="newimage" className="m-2 h-screen w-screen " />
+                <div className="px-6 py-4 ">
                   <div className="font-bold  mb-2 text-orange-400 text-3xl">Title: {localData.title}</div>
                   <p className=" text-red-400 text-2xl">
                     Descr: {localData.description}

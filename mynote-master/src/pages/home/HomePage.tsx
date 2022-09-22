@@ -48,9 +48,9 @@ function HomePage() {
   
   return (
    <div> 
-    <div className=" flex w-screen">
+    <div className=" flex  ">
       <Sidebar />
-      <div className="  m-4 h-max">
+      <div className=" ">
       
       {/* <button onClick={handleUp}>UPS</button><br />
      <button onClick={handleDown}>DOWN</button> */}

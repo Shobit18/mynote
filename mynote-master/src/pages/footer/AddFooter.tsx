@@ -19,7 +19,7 @@ function AddFooter() {
         setRoutes(e.target.value)
     }
     const handleCheckedChange = (e: any) => {
-        setChecked(true)
+        setChecked(!checked)
     }
 
     const handleSubmit = () => {

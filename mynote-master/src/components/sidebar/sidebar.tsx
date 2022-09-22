@@ -30,11 +30,7 @@ const Sidebar = () => {
         </li>
 
           <p className="title">USER</p>
-          <li>
-            
-            <span>Logout</span>
-          </li>
-
+        
 
         <li>
           

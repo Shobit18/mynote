@@ -83,8 +83,8 @@ const handleMove = (id:any, direction: any) => {
 
                                         <button className="bg-blue-200 p-2" onClick={() => handleEdit(headerIndex)} >Edit</button>
                                         <button className="bg-red-200 p-2" onClick={() => handleDelete(headerIndex)} >Delete</button>
-                                        <button className="bg-blue-200 p-2 m-2" onClick={() => handleMove(header.id, UP)}>Up</button>
-                                        <button className="bg-blue-200 p-2 m-2" onClick={() => handleMove(header.id, DOWN)}>Down</button>
+                                        <button className="p-1 m-2  text-2xl rounded-md bg-green-200" onClick={() => handleMove(header.id, UP)}>&#8593;</button>
+                                        <button className="p-1 m-2  text-2xl rounded-md bg-green-200" onClick={() => handleMove(header.id, DOWN)}>&#8595;</button>
                                     </div>
                                 )
                             })
