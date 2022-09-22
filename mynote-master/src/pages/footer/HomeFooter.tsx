@@ -33,6 +33,7 @@ function HomeFooter() {
     // const handleImageChange =(e:any) => {
     //     setImage(e.target.value)
     // }
+    const headers = JSON.parse(localStorage.getItem("header") || "[]");
 
     return (
        <div>
@@ -57,8 +58,41 @@ function HomeFooter() {
                 > ADD footer Content </button>
                 <br />
                 <h1 className="font-bold m-2">Menu</h1>
-                
-                <div className="grid grid-cols-3 gap-4">
+                <div className="flex justify-between">
+
+                {
+                    headers.map((localData: any) => {
+                        return (
+                            <div>
+                                <h1>Local: {localData.title}</h1>
+                                {
+                        footer && footer.length > 0 ?
+                            footer.map((footer: any, footerIndex: any) => {
+                                return (
+                                    <div className="m-2  border-2 w-96">
+                                        <div className="m-2 p-2 uppercase font-bold">
+                                            Title: {footer.title}</div>
+                                        <div className="m-2 p-2 ">
+                                            routes: {footer.routes}
+                                        </div>
+                                        <div className="m-2 p-2 ">
+                                            checkbox: {(footer.checked) ? "checked" : "unchecked"}
+                                        </div>
+
+                                        <button className="bg-blue-200 p-2" onClick={() => handleEdit(footerIndex)} >Edit</button>
+                                        <button className="bg-red-200 p-2" onClick={() => handleDelete(footerIndex)} >Delete</button>
+                                    </div>
+                                )
+                            })
+                            :
+                            'No Data found'
+                    }
+                            </div>
+                        )
+                    })
+                }
+                </div>
+                {/* <div className="grid grid-cols-3 gap-4">
 
                     {
                         footer && footer.length > 0 ?
@@ -82,7 +116,7 @@ function HomeFooter() {
                             :
                             'No Data found'
                     }
-                </div>
+                </div> */}
             </div>
         </div>
         </div>     
