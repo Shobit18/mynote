@@ -11,7 +11,8 @@ function EditFooter() {
     const editIndex: any = localStorage.getItem('editIndex');
 
     const [title, setTitle] = useState(getIndex[editIndex].title);
-    const [routes, setRoutes] = useState(getIndex[editIndex].title);
+    const [routes, setRoutes] = useState(getIndex[editIndex].routes);
+    const [url, setUrl] = useState(getIndex[editIndex].url);
     const [checked, setChecked] = useState(getIndex[editIndex].checked);
 
 
@@ -22,18 +23,21 @@ function EditFooter() {
     const handleRoutesChange = (e: any) => {
         setRoutes(e.target.value)
     }
+    const handleUrlChange = (e: any) => {
+        setUrl(e.target.value)
+    }
     const handleCheckedChange = (e: any) => {
         setChecked(!checked)
     }
 
 
     const handleEdit = () => {
-        console.log({ title, routes, checked, index: localStorage.getItem('editIndex') })
+        console.log({ title, routes, url, checked, index: localStorage.getItem('editIndex') })
         let footer = localStorage.getItem('footer') && (localStorage.getItem('footer') || "[]").length > 0 ? JSON.parse(localStorage.getItem('footer') || "[]") : []
 
         const _footer = footer.map((footer: any, footerInIndex: any) => {
             if (footerInIndex == localStorage.getItem('editIndex')) {
-                return { title, routes, checked }
+                return { title, routes, url, checked }
             } else {
                 return footer
             }
@@ -55,6 +59,7 @@ function EditFooter() {
 
                         <input type="text" value={title} placeholder="title" onChange={(e) => handleTitleChange(e)} className="m-2 p-2" /> <br />
                         <input type="text" value={routes} placeholder="routes" onChange={(e) => handleRoutesChange(e)} className="m-2 p-2" /><br />
+                        <input type="text" value={url} placeholder="url" onChange={(e) => handleUrlChange(e)} className="m-2 p-2" /><br />
                         <input type="checkbox" onChange={(e) => handleCheckedChange(e)} /><br />
 
                         <button onClick={handleEdit} className="m-2 p-2 bg-green-200" > Edit footer </button>

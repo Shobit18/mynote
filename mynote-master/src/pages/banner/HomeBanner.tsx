@@ -49,8 +49,9 @@ function HomeBanner() {
                     banner.map((banner:any, bannerIndex:any) => {
                         return (
                             <div className=" m-2 p-2 boder-2  shadow-md">
-                                <div className="m-2 p-2 border-2 w-scroll h-scroll">
-                                   image: {banner.image }</div>
+                                <div className="m-2 p-2 border-2 w-32 h-32">
+                                  <img src= {banner.image } alt="imgupload" />
+                                  </div>
                                 <div className="m-2 p-2  border-2 w-96">
                                    Title: {banner.title }</div>
                                 <div className="m-2 p-2 border-2 w-96 h-scroll">

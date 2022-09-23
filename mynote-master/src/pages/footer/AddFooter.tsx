@@ -8,6 +8,7 @@ import HomeFooter from "./HomeFooter";
 function AddFooter() {
     const navigate = useNavigate()
     const [title, setTitle] = useState('');
+    const [ url, setUrl] = useState('')
     const [routes, setRoutes] = useState('');
     const [checked, setChecked] = useState(false);
 
@@ -18,6 +19,9 @@ function AddFooter() {
     const handleRoutesChange = (e: any) => {
         setRoutes(e.target.value)
     }
+    const handleUrlChange = (e: any) => {
+        setUrl(e.target.value)
+    }
     const handleCheckedChange = (e: any) => {
         setChecked(!checked)
     }
@@ -27,7 +31,7 @@ function AddFooter() {
 
         const _footer = localStorage.getItem('footer') && (localStorage.getItem('footer') || "[]").length > 0 ? JSON.parse(localStorage.getItem('footer') || "[]") : []
 
-        localStorage.setItem('footer', JSON.stringify([..._footer, { title, routes, checked }]))
+        localStorage.setItem('footer', JSON.stringify([..._footer, { title, routes, url, checked }]))
 
         navigate('/admin/HomePage')
     }
@@ -42,8 +46,10 @@ function AddFooter() {
                     <h1> Adds footer </h1>
                     <label>Title</label>
                     <input type="text" value={title} onChange={(e) => handleTitleChange(e)} className="p-2 m-2 border-2" /> <br />
-                    <label>routes</label>
+                    <label>Link</label>
                     <input type="text" value={routes} onChange={(e) => handleRoutesChange(e)} className="p-2 m-2 border-2" />   <br />
+                    <label>URL</label>
+                    <input type="text" value={url} onChange={(e) => handleUrlChange(e)} className="p-2 m-2 border-2" />   <br />
                     <input type="checkbox" onChange={(e) => handleCheckedChange(e)} className="p-2 m-2" />   <br />
 
                     <button onClick={handleSubmit} className="bg-blue-200 p-2 m-2"> ADD Footer</button>

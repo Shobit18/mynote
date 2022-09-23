@@ -66,7 +66,7 @@ function HomeTestimonial() {
                                     <div className="border-2 w-full m-2 p-2 ">
                                         <div className=" p-2 m-2 w-24 h-24 border-2">
                                             {/* image : {testimonial.image} */}
-                                            <img src={testimonial.image} alt="upload image" />
+                                            <img src={testimonial.image} alt="upload image" className="w-32 h-32" />
                                         </div>
                                         <div className=" p-2 m-2 w-48 font-bold uppercase">
                                             Name: {testimonial.name}</div>

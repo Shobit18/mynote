@@ -11,6 +11,11 @@ function AddHeader() {
     const [routes, setRoutes] = useState('');
     const [checked, setChecked] = useState(false);
 
+    const [submenu, setSubmenu] = useState('');
+    const [url, setUrl] = useState('');
+
+    const _header: any = localStorage.getItem('header') && (localStorage.getItem('header') || "[]")
+
 
     const handleTitleChange = (e:any) => {
         setTitle(e.target.value)
@@ -21,13 +26,18 @@ function AddHeader() {
     const handleCheckedChange = (e:any) => {
         setChecked(!checked)
     }
+
+    const handdleSubmenu = (e: any) => {
+        setSubmenu(e.target.value)
+        setUrl(e.target.value)
+    }
    
     const handleSubmit = () => {
         console.log({ title, routes, checked })
 
         const _header = localStorage.getItem('header') && (localStorage.getItem('header') || "[]").length > 0 ? JSON.parse(localStorage.getItem('header') || "[]") : []
 
-        localStorage.setItem('header', JSON.stringify([..._header, { id: _header.length, title, routes, checked }]))
+        localStorage.setItem('header', JSON.stringify([..._header, { id: _header.length, title,  routes, checked }]))
 
         navigate('/admin/HomeHeader')
     }
