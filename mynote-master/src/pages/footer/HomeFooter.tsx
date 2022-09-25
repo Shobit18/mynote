@@ -11,7 +11,7 @@ function HomeFooter() {
     const [description, setDescription] = useState('');
 
     useEffect(() => {
-        const footer = localStorage.getItem('footer') || "";
+        const footer = localStorage.getItem('header') || "";
         setFooter(JSON.parse(footer || "[]"));
     }, [footer])
 
@@ -33,7 +33,7 @@ function HomeFooter() {
     // const handleImageChange =(e:any) => {
     //     setImage(e.target.value)
     // }
-    const headers = JSON.parse(localStorage.getItem("header") || "[]");
+    // const headers = JSON.parse(localStorage.getItem("header") || "[]");
     // let getIndex: any = localStorage.getItem('header');
     // getIndex = JSON.parse(getIndex);
     // const editIndex: any = localStorage.getItem('editIndex');
@@ -71,35 +71,44 @@ function HomeFooter() {
                             <h1>Column</h1>
 
                             {
-                                headers && headers.length > 0 ?
-                                    headers.map((header: any, headerIndex: any) => {
+                                footer && footer.length > 0 ?
+                                    footer.map((header: any, headerIndex: any) => {
                                         return (
                                             <div className="w-1/2  m-2 ">
                                                 Title: {header.title}
                                                 <div className=" m-2 border-2">
                                                     {
-                                                        footer.map((footer: any, footerIndex: any) => {
-                                                            return (
+                                                        // footer.map((footer: any, footerIndex: any) => {
+                                                        //     return (
 
-                                                                <div className="m-2 p-2 border-2">
-                                                                    <div className="m-2 p-2 border-2 uppercase w-48 font-bold">
-                                                                        Title: {footer.title}</div>
-                                                                    <div className="m-2 p-2  border-2  w-1/2">
-                                                                        routes: {footer.routes}
-                                                                    </div>
-                                                                    <div className="m-2 p-2  border-2  w-1/2">
-                                                                        url: {footer.url}
-                                                                    </div>
-                                                                    <div className="m-2 p-2 ">
-                                                                        checkbox: {(footer.checked) ? "checked" : "unchecked"}
-                                                                    </div>
+                                                        //         <div className="m-2 p-2 border-2">
+                                                        //             <div className="m-2 p-2 border-2 uppercase w-48 font-bold">
+                                                        //                 Title: {footer.title}</div>
+                                                        //             <div className="m-2 p-2  border-2  w-1/2">
+                                                        //                 routes: {footer.routes}
+                                                        //             </div>
+                                                        //             <div className="m-2 p-2  border-2  w-1/2">
+                                                        //                 url: {footer.url}
+                                                        //             </div>
+                                                        //             <div className="m-2 p-2 ">
+                                                        //                 checkbox: {(footer.checked) ? "checked" : "unchecked"}
+                                                        //             </div>
 
-                                                                    <button className="bg-blue-200 p-2" onClick={() => handleEdit(footerIndex)} >Edit</button>
-                                                                    <button className="bg-red-200 p-2" onClick={() => handleDelete(footerIndex)} >Delete</button>
+                                                        //             <button className="bg-blue-200 p-2" onClick={() => handleEdit(footerIndex)} >Edit</button>
+                                                        //             <button className="bg-red-200 p-2" onClick={() => handleDelete(footerIndex)} >Delete</button>
 
-                                                                </div>
-                                                            )
-                                                        })
+                                                        //         </div>
+                                                        //     )
+                                                        // })
+
+                                                       
+                                                header.submenu.map((e:any) => {
+                                                    return (
+
+                                                        <h1>Title: {e.title}</h1>
+                                                    )
+                                                }) 
+                                            
                                                     }
                                                 </div>
 

@@ -29,9 +29,11 @@ function AddFooter() {
     const handleSubmit = () => {
         console.log({ title, routes, checked })
 
-        const _footer = localStorage.getItem('footer') && (localStorage.getItem('footer') || "[]").length > 0 ? JSON.parse(localStorage.getItem('footer') || "[]") : []
+        // const _footer = localStorage.getItem('footer') && (localStorage.getItem('footer') || "[]").length > 0 ? JSON.parse(localStorage.getItem('footer') || "[]") : []
+        const _footer = localStorage.getItem('header') && (localStorage.getItem('header') || "[]").length > 0 ? JSON.parse(localStorage.getItem('header') || "[]") : []
 
-        localStorage.setItem('footer', JSON.stringify([..._footer, { title, routes, url, checked }]))
+        // localStorage.setItem('footer', JSON.stringify([..._footer, { title, routes, url, checked }]))
+        localStorage.setItem('header', JSON.stringify([..._footer, { title, routes, url, checked }]))
 
         navigate('/admin/HomePage')
     }

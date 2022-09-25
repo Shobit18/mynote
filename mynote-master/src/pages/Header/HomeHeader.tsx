@@ -73,7 +73,16 @@ const handleMove = (id:any, direction: any) => {
                                 return (
                                     <div className="m-2  border-2 w-96">
                                         <div className="m-2 p-2 ">
-                                            Title: {header?.title}</div>
+                                            Title: {header.title}</div>
+                                            {/* <h1>Submenu: {header.submenu.title}</h1> */}
+                                            {/* {
+                                                header.submenu.map((e:any) => {
+                                                    return (
+
+                                                        <h1>Title: {e.title}</h1>
+                                                    )
+                                                }) 
+                                            } */}
                                         <div className="m-2 p-2 ">
                                             routes: {header.routes}
                                         </div>
