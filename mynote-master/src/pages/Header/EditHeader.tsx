@@ -17,6 +17,35 @@ function EditHeader() {
     const [checked, setChecked] = useState(getIndex[editIndex].checked);
 
 
+    const [values, setValues] = useState({
+        link: '',
+        url: '',
+        ischecked: '',
+    });
+
+    const handleLinkChange = (event: any) => {
+
+        setValues((values) => ({
+            ...values,
+            link: event.target.value,
+        }));
+    };
+
+    const handleUrlChange = (event: any) => {
+
+        setValues((values) => ({
+            ...values,
+            url: event.target.value,
+        }));
+    };
+
+    const handleIscheckedChange = (event: any) => {
+
+        setValues((values) => ({
+            ...values,
+            ischecked: event.target.value,
+        }));
+    };
 
     const handleTitleChange = (e: any) => {
         setTitle(e.target.value)
@@ -35,7 +64,7 @@ function EditHeader() {
 
         const _header = header.map((header: any, headerInIndex: any) => {
             if (headerInIndex == localStorage.getItem('editIndex')) {
-                return {  title, routes, checked }
+                return {  title, routes, values, checked }
             } else {
                 return header
             }
@@ -59,6 +88,35 @@ function EditHeader() {
                         <input type="text" value={title} placeholder="title" onChange={(e) => handleTitleChange(e)} className="m-2 p-2" /> <br />
                         <input type="text" value={routes} placeholder="routes" onChange={(e) => handleRoutesChange(e)} className="m-2 p-2" /><br />
                         <input type="checkbox" onChange={(e) => handleCheckedChange(e)} /><br />
+
+                        <input
+                        id="first-name"
+                        className="m-2 p-2"
+                        type="text"
+                        placeholder="link"
+                        name="link"
+                        // value={values.link}
+                        onChange={handleLinkChange}
+                    /><br />
+
+                    <input
+                        id="last-name"
+                        className="m-2 p-2"
+                        type="text"
+                        placeholder="url"
+                        name="url"
+                        // value={values.url}
+                        onChange={handleUrlChange}
+                    /><br />
+                    <input
+                        id="ischecked"
+                        className="m-2 p-2"
+                        type="checkbox"
+                        placeholder="ischecked"
+                        name="ischecked"
+                        // value={values.ischecked}
+                        onChange={handleIscheckedChange}
+                    /><br />
 
                         <button onClick={handleEdit} className="m-2 p-2 bg-green-200" > Edit Header </button>
                     </form>

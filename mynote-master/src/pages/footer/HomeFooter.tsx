@@ -28,7 +28,7 @@ function HomeFooter() {
 
     const handleEdit = (footerIndex: any) => {
         localStorage.setItem('editIndex', footerIndex)
-        navigate('/admin/EditFooter')
+        navigate('/admin/EditHeader')
     }
     // const handleImageChange =(e:any) => {
     //     setImage(e.target.value)
@@ -75,41 +75,42 @@ function HomeFooter() {
                                     footer.map((header: any, headerIndex: any) => {
                                         return (
                                             <div className="w-1/2  m-2 ">
-                                                Title: {header.title}
-                                                <div className=" m-2 border-2">
+                                               <h1 className="font-bold"> {header.title} </h1>
+                                                {/* Value: {header.values.url} */}
+                                                <div className=" m-2 border-2 ">
                                                     {
                                                         // footer.map((footer: any, footerIndex: any) => {
                                                         //     return (
 
-                                                        //         <div className="m-2 p-2 border-2">
-                                                        //             <div className="m-2 p-2 border-2 uppercase w-48 font-bold">
-                                                        //                 Title: {footer.title}</div>
-                                                        //             <div className="m-2 p-2  border-2  w-1/2">
-                                                        //                 routes: {footer.routes}
-                                                        //             </div>
-                                                        //             <div className="m-2 p-2  border-2  w-1/2">
-                                                        //                 url: {footer.url}
-                                                        //             </div>
-                                                        //             <div className="m-2 p-2 ">
-                                                        //                 checkbox: {(footer.checked) ? "checked" : "unchecked"}
-                                                        //             </div>
+                                                                <div className="m-2 p-2 ">
+                                                                    <div className="m-2 p-2 ">
+                                                                        Title: {header.subData.link}</div>
+                                                                    <div className="m-2 p-2   w-1/2">
+                                                                        routes: {header.subData.link}
+                                                                    </div>
+                                                                   
+                                                                    <div className="m-2 p-2 ">
+                                                                        checkbox: {(header.ischecked) ? "checked" : "unchecked"}
+                                                                    </div>
 
-                                                        //             <button className="bg-blue-200 p-2" onClick={() => handleEdit(footerIndex)} >Edit</button>
-                                                        //             <button className="bg-red-200 p-2" onClick={() => handleDelete(footerIndex)} >Delete</button>
+                                                                    <button className="bg-blue-200 p-2" onClick={() => handleEdit(headerIndex)} >Edit</button>
+                                                                    <button className="bg-red-200 p-2" onClick={() => handleDelete(headerIndex)} >Delete</button>
 
-                                                        //         </div>
+                                                                </div>
                                                         //     )
                                                         // })
 
-                                                       
-                                                header.submenu.map((e:any) => {
-                                                    return (
 
-                                                        <h1>Title: {e.title}</h1>
-                                                    )
-                                                }) 
-                                            
+
+                                                        // header.values.map((value: any) => {
+                                                        //     return (
+                                                        //         <div>
+                                                        //             <h1>Url: {value.url}</h1>
+                                                        //         </div>
+                                                        //     )
+                                                        // })
                                                     }
+                                              
                                                 </div>
 
                                             </div>
