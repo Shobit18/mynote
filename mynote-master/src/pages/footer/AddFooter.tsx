@@ -94,9 +94,6 @@ function AddFooter() {
                     <label>URL</label>
                     <input type="text" value={url} onChange={(e) => handleUrlChange(e)} className="p-2 m-2 border-2" />   <br />
                     <input type="checkbox" onChange={(e) => handleCheckedChange(e)} className="p-2 m-2" />   <br /> */}
-
-
-
                     <input
                         id="first-name"
                         className="form-field"

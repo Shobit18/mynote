@@ -1,6 +1,6 @@
-// import { Button } from "@mui/material"
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
+import Header from "../../components/Header"
 import Sidebar from "../../components/sidebar/sidebar"
 import Footer from "../footer/footer"
 
@@ -11,7 +11,7 @@ function HomeHeader() {
 
     const UP = -1
     const DOWN = 1
-    
+
     useEffect(() => {
         const header = localStorage.getItem('header') || "";
         setHeader(JSON.parse(header || "[]"));
@@ -33,25 +33,25 @@ function HomeHeader() {
         navigate('/admin/EditHeader')
     }
 
-const handleMove = (id:any, direction: any) => {
-    console.log("cliked")
-    const position = header.findIndex((i: any) => i.id === id)
-    if(position<0) {
-        console.log("items not found")
-    } else if(direction === UP && position === 0 || direction === DOWN && position === header.length - 1) {
-        return
+    const handleMove = (id:any, direction: any) => {
+        console.log("cliked")
+        const position = header.findIndex((i: any) => i.id === id)
+        if(position<0) {
+            console.log("items not found")
+        } else if(direction === UP && position === 0 || direction === DOWN && position === header.length - 1) {
+            return
+        }
+        const item = header[position]
+        const newItems = header.filter((i:any) => i.id !== id)
+        newItems.splice(position + direction, 0, item)
+    
+        // this.setState({header, newItems})
+        localStorage.setItem('header', JSON.stringify(newItems))
     }
-    const item = header[position]
-    const newItems = header.filter((i:any) => i.id !== id)
-    newItems.splice(position + direction, 0, item)
-
-    // this.setState({header, newItems})
-    localStorage.setItem('header', JSON.stringify(newItems))
-}
-
 
     return (
-        <>
+        <div>
+            <Header />
             <div className="flex">
                 <div>
                     <Sidebar />
@@ -74,15 +74,7 @@ const handleMove = (id:any, direction: any) => {
                                     <div className="m-2  border-2 w-96">
                                         <div className="m-2 p-2 ">
                                             Title: {header.title}</div>
-                                            {/* <h1>Submenu: {header.submenu.title}</h1> */}
-                                            {/* {
-                                                header.submenu.map((e:any) => {
-                                                    return (
 
-                                                        <h1>Title: {e.title}</h1>
-                                                    )
-                                                }) 
-                                            } */}
                                         <div className="m-2 p-2 ">
                                             routes: {header.routes}
                                         </div>
@@ -104,7 +96,7 @@ const handleMove = (id:any, direction: any) => {
             </div>
             <hr className="w-full" />
             <Footer />
-        </>
+        </div>
     )
 }
 

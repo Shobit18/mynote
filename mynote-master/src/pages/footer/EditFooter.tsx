@@ -6,7 +6,7 @@ import HomeFooter from "./HomeFooter";
 function EditFooter() {
     const navigate = useNavigate()
 
-    let getIndex: any = localStorage.getItem('footer');
+    let getIndex: any = localStorage.getItem('header');
     getIndex = JSON.parse(getIndex);
     const editIndex: any = localStorage.getItem('editIndex');
 
@@ -17,6 +17,11 @@ function EditFooter() {
 
 
 
+let getFooter: any = localStorage.getItem('header');
+
+// getFooter.map((footer: any) => {
+    
+// })
     const handleTitleChange = (e: any) => {
         setTitle(e.target.value)
     }
@@ -53,6 +58,7 @@ function EditFooter() {
                 <div>
                     <Sidebar />
                 </div>
+                
                 <div>
                     <h1> Edit footer </h1>
                     <form className="m-2 p-2 bg-blue-200">
@@ -64,6 +70,7 @@ function EditFooter() {
 
                         <button onClick={handleEdit} className="m-2 p-2 bg-green-200" > Edit footer </button>
                     </form>
+                    
                 </div>
             </div>
             <hr className="w-screen" />

@@ -26,6 +26,8 @@ import Footer from './pages/footer/footer';
 import AddFooter from './pages/footer/AddFooter';
 import EditFooter from './pages/footer/EditFooter';
 import HomeFooter from './pages/footer/HomeFooter';
+import { AuthProvider } from './components/auth';
+import { RequireAuth } from './components/RequireAuth';
 
 function App() {
 
@@ -37,57 +39,45 @@ function App() {
   localStorage.setItem("loginData", JSON.stringify(loginData))
   const addDataToLocal = localStorage.setItem('constant', JSON.stringify(constant))
 
-  // if(!token) {
-  //   return <Login setToken={setToken} />
-  // }
-
-  // const getNavData = JSON.parse(localStorage.getItem("navData")|| "[]")
   return (
     <div className="App">
 
-      <Header />
+      {/* <Header /> */}
       <div className='flex'>
         <div>
           {/* <Sidebar /> */}
         </div>
         <div>
+          <AuthProvider>
+            <Routes>
+              <Route path="/">
+                <Route index element={<Home />} />
+                <Route path="/admin" element={<Login />} />
 
-          <Routes>
-            <Route path="/">
-              <Route index element={<Home />} />
-              <Route path="/admin" element={<Login />} />
+                <Route path="/admin/HomePage" element={<RequireAuth><HomePage /></RequireAuth>} />
+                <Route path="/admin/HomeHeader" element={<RequireAuth><HomeHeader /></RequireAuth>} />
+                <Route path="/admin/AddHeader" element={<RequireAuth><AddHeader /></RequireAuth>} />
+                <Route path="/admin/EditHeader" element={<EditHeader />} />
 
-              <Route path="/admin/HomePage" element={<HomePage />} />
-              <Route path="/admin/HomeHeader" element={<HomeHeader />} />
-              <Route path="/admin/AddHeader" element={<AddHeader />} />
-              <Route path="/admin/EditHeader" element={<EditHeader />} />
-
-              <Route path="/admin/HomeTestimonial" element={<HomeTestimonial />} />
-              <Route path="/admin/AddTestimonial" element={<AddTestimonial />} />
-              <Route path="/admin/EditTestimonial" element={<EditTestimonial />} />
-
-
-              <Route path="/admin/HomeBanner" element={<HomeBanner />} />
-              <Route path="/admin/AddBanner" element={<AddBanner />} />
-              <Route path="/admin/EditBanner" element={<EditBanner />} />
+                <Route path="/admin/HomeTestimonial" element={<RequireAuth><HomeTestimonial /></RequireAuth>} />
+                <Route path="/admin/AddTestimonial" element={<RequireAuth><AddTestimonial /></RequireAuth>} />
+                <Route path="/admin/EditTestimonial" element={<RequireAuth><EditTestimonial /></RequireAuth>} />
 
 
-              <Route path="/admin/HomeFooter" element={<HomeFooter />} />
-              <Route path="/admin/AddFooter" element={<AddFooter />} />
-              <Route path="/admin/EditFooter" element={<EditFooter />} />
-            </Route>
-          </Routes>
+                <Route path="/admin/HomeBanner" element={<RequireAuth><HomeBanner /></RequireAuth>} />
+                <Route path="/admin/AddBanner" element={<RequireAuth><AddBanner /></RequireAuth>} />
+                <Route path="/admin/EditBanner" element={<RequireAuth><EditBanner /></RequireAuth>} />
+
+
+                <Route path="/admin/HomeFooter" element={<RequireAuth><HomeFooter /></RequireAuth>} />
+                <Route path="/admin/AddFooter" element={<RequireAuth><AddFooter /></RequireAuth>} />
+                <Route path="/admin/EditFooter" element={<RequireAuth><EditFooter /></RequireAuth>} />
+              </Route>
+            </Routes>
+          </AuthProvider>
         </div>
       </div>
-      {/* <Footer /> */}
-      {/* <Route path="/" element={<Home />}>Home</Route>
-        <Route path="/About" element={<About />}>About</Route>
-        <Route path="/Contact" element={<Contact />}>Contact</Route>
-        <Route path="/components/navbar/Navbar" element={<Navbar />}>Navbar</Route> */}
-      {/* <BrowserRouter> */}
-      {/* </BrowserRouter> */}
-      {/* <Home /> */}
-      {/* <Footer /> */}
+     
     </div>
   );
 }

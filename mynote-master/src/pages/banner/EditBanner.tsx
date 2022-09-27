@@ -1,6 +1,7 @@
 // import { Button, input, Typography } from "@mui/material"
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
+import Header from "../../components/Header";
 import Sidebar from "../../components/sidebar/sidebar";
 import HomeFooter from "../footer/HomeFooter";
 
@@ -11,9 +12,9 @@ function EditBanner() {
     let getIndex: any = localStorage.getItem('banner');
     getIndex = JSON.parse(getIndex);
     console.log("index: ", +getIndex);
-    
+
     const editIndex: any = localStorage.getItem('editIndex');
-    console.log("edit" +editIndex)
+    console.log("edit" + editIndex)
 
 
     const [title, setTitle] = useState(getIndex[editIndex].title);
@@ -52,31 +53,32 @@ function EditBanner() {
     }
 
     return (
-        <>
-        <div className="flex">
-            <div>
-                <Sidebar />
-            </div>
-            <div>
+        <div>
+            <Header />
+            <div className="flex">
+                <div>
+                    <Sidebar />
+                </div>
+                <div>
 
-                <h1> Edit banner </h1>
-                
-                <div className="shodow-md m-2 boder-2 bg-blue-200">
-                    <label className="">Image</label>
-                    <input type="file" value={image}  onChange={(e) => handleImageChange(e)} className="h-32 w-28 p-2 m-2 border-2 " /> <br />
-                    <label className="">title</label>
-                    <input type="text" value={title}  onChange={(e) => handleTitleChange(e)} className="p-2 m-2" /> <br />
-                    <label className="">Desciption</label>
-                    <input type="text" value={description}  onChange={(e) => handleDescChange(e)} className="p-2 m-2" /><br />
+                    <h1> Edit banner </h1>
 
-                    <input type="text" value={button} placeholder="button" onChange={(e) => handleButtonChange(e)} className="p-2 m-2" /> <br />
-                    <button onClick={handleEdit} className="bg-green-200 p-2 m-2" > Edit banner</button>
+                    <div className="shodow-md m-2 boder-2 bg-blue-200">
+                        <label className="">Image</label>
+                        <input type="file" value={image} onChange={(e) => handleImageChange(e)} className="h-32 w-28 p-2 m-2 border-2 " /> <br />
+                        <label className="">title</label>
+                        <input type="text" value={title} onChange={(e) => handleTitleChange(e)} className="p-2 m-2" /> <br />
+                        <label className="">Desciption</label>
+                        <input type="text" value={description} onChange={(e) => handleDescChange(e)} className="p-2 m-2" /><br />
+
+                        <input type="text" value={button} placeholder="button" onChange={(e) => handleButtonChange(e)} className="p-2 m-2" /> <br />
+                        <button onClick={handleEdit} className="bg-green-200 p-2 m-2" > Edit banner</button>
+                    </div>
                 </div>
             </div>
+            <hr className="w-screen" />
+            <HomeFooter />
         </div>
-        <hr className="w-screen" />
-        <HomeFooter />
-        </>  
     )
 }
 

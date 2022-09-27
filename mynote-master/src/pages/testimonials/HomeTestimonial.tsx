@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
+import Header from "../../components/Header";
 function HomeTestimonial() {
     const navigate = useNavigate()
     const [testimonial, settestimonial] = useState([])
@@ -46,7 +47,8 @@ function HomeTestimonial() {
 
 
     return (
-        <>
+        <div>
+
             <br />
             <button
                 onClick={() => {
@@ -90,7 +92,7 @@ function HomeTestimonial() {
                         'No Data found'
                 }
             </div>
-        </>
+        </div>
     )
 }
 

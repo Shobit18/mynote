@@ -1,14 +1,20 @@
 import React, { useState } from "react";
+import { useAuth } from "../../components/auth";
+
 import { Link, useNavigate } from "react-router-dom";
 
 function Login() {
   const [usernamelog, setUsernamelog] = useState(" ");
   const [passwordlog, setPasswordlog] = useState(" ");
+  const auth: any = useAuth()
 
   const navigate = useNavigate()
 
   function handleLogin(e: any) {
     e.preventDefault();
+    auth.login(usernamelog)
+    auth.login(passwordlog)
+    navigate('home')
     let pass = JSON.parse(localStorage.getItem("loginData") || "[]");
     let username = JSON.parse(localStorage.getItem("loginData") || "[]");
 
@@ -29,7 +35,6 @@ function Login() {
 
   return (
     <div className=" bg-green-200 w-96 h-max m-2 p-4  rounded-md">
-
       <form onSubmit={handleLogin}>
         <h3 className="ml-28 text-red-600 m-2">LogIn</h3>
         <div className="m-2 p-2">
@@ -55,9 +60,6 @@ function Login() {
         <button type="submit" onClick={handleLogin} className="bg-green-400  rounded-md p-2">
           Login
         </button>
-        <Link to="/admin" className="bg-green-400 ml-4 rounded-md p-2">
-          Already Register
-        </Link>
 
       </form>
 

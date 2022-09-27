@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
+import Header from "../../components/Header";
 import Sidebar from "../../components/sidebar/sidebar";
 import HomeFooter from "../footer/HomeFooter";
 
@@ -50,7 +51,8 @@ function EditTestimonial() {
     }
 
     return (
-        <>
+        <div>
+            <Header />
         <div className="flex">
             <div>
                 <Sidebar />
@@ -76,7 +78,7 @@ function EditTestimonial() {
         </div>
         <hr className="w-screen" />
         <HomeFooter />
-        </>
+        </div>
     )
 }
 

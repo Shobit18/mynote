@@ -1,15 +1,8 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
+import Header from "../../components/Header";
 import Sidebar from "../../components/sidebar/sidebar";
 import HomeFooter from "../footer/HomeFooter";
-import Header from "./Header";
-
-// interface subMenu {
-//     url: string;
-//     link: string;
-//     isChecked: boolean
-//   }
-
 
 function AddHeader() {
     const navigate = useNavigate()
@@ -18,7 +11,7 @@ function AddHeader() {
     const [checked, setChecked] = useState(false);
     const [link, setLink] = useState('');
     const [url, setUrl] = useState('');
-    const [ischecked, setIschecked] = useState('');
+    const [ischecked, setIschecked] = useState(false);
 
     const subData: any = [];
     // const [values, setValues] = useState({
@@ -38,7 +31,7 @@ function AddHeader() {
     }
 
     const handleLinkChange = (event: any) => {
-        
+
         setLink(event.target.value)
         // setValues((values) => ({
         //     ...values,
@@ -49,23 +42,17 @@ function AddHeader() {
 
     const handleUrlChange = (event: any) => {
         setUrl(event.target.value)
-    //     setValues((values) => ({
-    //         ...values,
-    //         url: event.target.value,
-    //     }));
+
     };
 
     const handleIscheckedChange = (event: any) => {
-        setIschecked(event.target.value)
-    //     setValues((values) => ({
-    //         ...values,
-    //         ischecked: event.target.value,
-    //     }));
+        setIschecked(!ischecked)
+
     };
 
-    subData.push({link, url, ischecked })
+    subData.push({id: subData.length, link, url, ischecked })
     const handleSubmit = (e: any) => {
-
+        // e.window.location.reload(true)
         console.log({ title, routes, checked })
 
         const _header = localStorage.getItem('header') && (localStorage.getItem('header') || "[]").length > 0 ? JSON.parse(localStorage.getItem('header') || "[]") : []
@@ -76,9 +63,11 @@ function AddHeader() {
     }
 
     return (
-        <>
+        <div>
+            <Header />
             <div className="flex">
                 <div>
+                    {/* <Header /> */}
                     <Sidebar />
                 </div>
                 <div>
@@ -126,7 +115,7 @@ function AddHeader() {
             </div>
             <hr className="w-screen" />
             <HomeFooter />
-        </>
+        </div>
     )
 }
 
