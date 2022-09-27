@@ -7,8 +7,8 @@ import { useNavigate } from "react-router-dom"
 function HomeFooter() {
     const navigate = useNavigate()
     const [footer, setFooter] = useState([]);
-    const [image, setImage] = useState('');
-    const [description, setDescription] = useState('');
+    // const [image, setImage] = useState('');
+    // const [description, setDescription] = useState('');
 
     useEffect(() => {
         const footer = localStorage.getItem('header') || "";
@@ -16,14 +16,14 @@ function HomeFooter() {
     }, [footer])
 
     const handleDelete = (footerOutIndex: any) => {
-        const _footer = footer.filter((footer: any, footerInIndex: any) => {
+        const _header = footer.filter((footer: any, footerInIndex: any) => {
             if (footerInIndex !== footerOutIndex) {
                 return footer
             }
         })
-        console.log(_footer)
-        setFooter(_footer)
-        localStorage.setItem('footer', JSON.stringify(_footer))
+        console.log(_header)
+        setFooter(_header)
+        localStorage.setItem('_header', JSON.stringify(_header))
     }
 
     const handleEdit = (footerIndex: any) => {
@@ -82,35 +82,47 @@ function HomeFooter() {
                                                         // footer.map((footer: any, footerIndex: any) => {
                                                         //     return (
 
-                                                                <div className="m-2 p-2 ">
-                                                                    <div className="m-2 p-2 ">
-                                                                        Title: {header.subData.link}</div>
-                                                                    <div className="m-2 p-2   w-1/2">
-                                                                        routes: {header.subData.link}
-                                                                    </div>
+                                                        //         <div className="m-2 p-2 ">
+                                                        //             {/* <div className="m-2 p-2 ">
+                                                        //                 Title: {header.subData.link}</div>
+                                                        //             <div className="m-2 p-2   w-1/2">
+                                                        //                 routes: {header.subData.link}
+                                                        //             </div> */}
                                                                    
-                                                                    <div className="m-2 p-2 ">
-                                                                        checkbox: {(header.ischecked) ? "checked" : "unchecked"}
-                                                                    </div>
+                                                        //             <div className="m-2 p-2 ">
+                                                        //                 checkbox: {(header.ischecked) ? "checked" : "unchecked"}
+                                                        //             </div>
 
-                                                                    <button className="bg-blue-200 p-2" onClick={() => handleEdit(headerIndex)} >Edit</button>
-                                                                    <button className="bg-red-200 p-2" onClick={() => handleDelete(headerIndex)} >Delete</button>
+                                                        //             <button className="bg-blue-200 p-2" onClick={() => handleEdit(headerIndex)} >Edit</button>
+                                                        //             <button className="bg-red-200 p-2" onClick={() => handleDelete(headerIndex)} >Delete</button>
 
-                                                                </div>
-                                                        //     )
-                                                        // })
-
-
-
-                                                        // header.values.map((value: any) => {
-                                                        //     return (
-                                                        //         <div>
-                                                        //             <h1>Url: {value.url}</h1>
                                                         //         </div>
-                                                        //     )
-                                                        // })
+                                                        // //     )
+                                                        // // })
+
+
+
+                                                        header.subData.map((value: any, footerIndex: any) => {
+                                                            return (
+                                                                <div className="m-2 p-2 ">
+                                                                     <div className="m-2 p-2 ">
+                                                                Link: {value.link}</div>
+                                                                     <div className="m-2 p-2   w-1/2">
+                                                                         Url: {value.url}
+                                                                     </div> 
+                                                                           
+                                                                     <div className="m-2 p-2 ">
+                                                                         checkbox: {(value.ischecked) ? "checked" : "unchecked"}
+                                                                     </div>
+        
+                                                                     <button className="bg-blue-200 p-2" onClick={() => handleEdit(headerIndex)} >Edit</button>
+                                                                     <button className="bg-red-200 p-2" onClick={() => handleDelete(footerIndex)} >Delete</button>
+        
+                                                                 </div>
+                                                            )
+                                                        })
                                                     }
-                                              
+                                
                                                 </div>
 
                                             </div>
