@@ -3,8 +3,6 @@ import { useNavigate } from "react-router-dom"
 import Header from "../../components/Header"
 import Sidebar from "../../components/sidebar/sidebar"
 import Footer from "../footer/footer"
-
-
 function HomeHeader() {
     const navigate = useNavigate()
     const [header, setHeader] = useState([])
@@ -23,7 +21,7 @@ function HomeHeader() {
                 return header
             }
         })
-        console.log(_header)
+        // console.log(_header)
         setHeader(_header)
         localStorage.setItem('header', JSON.stringify(_header))
     }
@@ -33,6 +31,7 @@ function HomeHeader() {
         navigate('/admin/EditHeader')
     }
 
+    // handle ups and down move 
     const handleMove = (id:any, direction: any) => {
         console.log("cliked")
         const position = header.findIndex((i: any) => i.id === id)
@@ -44,8 +43,6 @@ function HomeHeader() {
         const item = header[position]
         const newItems = header.filter((i:any) => i.id !== id)
         newItems.splice(position + direction, 0, item)
-    
-        // this.setState({header, newItems})
         localStorage.setItem('header', JSON.stringify(newItems))
     }
 

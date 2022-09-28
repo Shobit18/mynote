@@ -1,13 +1,5 @@
 import { createContext, useState, useContext } from "react"
 
-// export interface IAuth {
-    
-//     login : () => void;
-//     user : any
-//     logout : () => void;
-
-// }
-
 export const AuthContext = createContext(null as any)
 
 export const AuthProvider = ({ children }: any) => {
@@ -22,7 +14,7 @@ export const AuthProvider = ({ children }: any) => {
     }
 
     return (
-        <AuthContext.Provider value={{ user, login, logout}}>
+        <AuthContext.Provider value={{ user, login, logout }}>
             {children}
         </AuthContext.Provider>
     )

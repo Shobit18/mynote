@@ -6,9 +6,7 @@ import HomeBanner from "../banner/HomeBanner";
 import HomeFooter from "../footer/HomeFooter";
 import HomeTestimonial from "../testimonials/HomeTestimonial";
 
-function HomePage() {
-
-  
+function HomePage() {  
   return (
    <div> 
     <Header />

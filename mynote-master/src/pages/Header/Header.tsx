@@ -1,14 +1,11 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Sidebar from "../../components/sidebar/sidebar";
-// import HeaderModal from "./HeaderModal";
 import HomeHeader from "./HomeHeader";
 
 const Header = () => {
     return (
         <div>
-            
-
             <div className="m-2">
                 <h1 className="font-bold m-2">Menu:</h1>
 
@@ -16,8 +13,6 @@ const Header = () => {
                 <HomeHeader />
             </div>
         </div>
-
-
     );
 };
 

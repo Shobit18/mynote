@@ -4,7 +4,7 @@ import Sidebar from "../../components/sidebar/sidebar";
 import HomeFooter from "./HomeFooter";
 
 
-
+//  this component only for test not use in app
 function AddFooter() {
     const navigate = useNavigate()
     // const [title, setTitle] = useState('');

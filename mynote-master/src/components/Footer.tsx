@@ -23,8 +23,7 @@ function Footer() {
                           if (sub.ischecked) {
                             return (
                               <div>
-                                <h3 className="">{sub.link}</h3>
-                                <h3 className="">{sub.url}</h3>
+                                <a href= {sub.url} className="" target='_blank' >{sub.linkTitle}</a>
                               </div>
                             )
                           }

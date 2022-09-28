@@ -6,33 +6,26 @@ import HomeFooter from "../footer/HomeFooter";
 function EditHeader() {
     const navigate = useNavigate()
 
+    // get indexId for edit the object value
     let getIndex: any = localStorage.getItem('header');
     getIndex = JSON.parse(getIndex);
     const editIndex: any = localStorage.getItem('editIndex');
 
+    console.log(getIndex)
 
     const [title, setTitle] = useState(getIndex[editIndex].title);
     const [routes, setRoutes] = useState(getIndex[editIndex].routes);
     const [checked, setChecked] = useState(getIndex[editIndex].checked);
 
-    const [link, setLink] = useState(getIndex[editIndex].subData.routes);
-    const [url, setUrl] = useState(getIndex[editIndex].routes);
+    const [linkTitle, setLinkTitle] = useState(getIndex[editIndex].subData[0].linkTitle);
+    const [url, setUrl] = useState(getIndex[editIndex].subData[0].url);
     const [ischecked, setIschecked] = useState(getIndex[editIndex].ischecked);
 
-
-    // const [values, setValues] = useState({
-    //     link: '',
-    //     url: '',
-    //     ischecked: '',
-    // });
     const subData: any = [];
 
-    const handleLinkChange = (e: any) => {
-        setLink(e.target.value)
-        // setValues((values) => ({
-        //     ...values,
-        //     link: e.target.value,
-        // }));
+    const handleLinkTitleChange = (e: any) => {
+        setLinkTitle(e.target.value)
+
     };
 
     const handleUrlChange = (e: any) => {
@@ -55,7 +48,7 @@ function EditHeader() {
         setChecked(!checked)
     }
 
-    subData.push({ link, url, ischecked })
+    subData.push({ linkTitle, url, ischecked })
     const handleEdit = () => {
         console.log({ title, routes, checked, index: localStorage.getItem('editIndex') })
         let header = localStorage.getItem('header') && (localStorage.getItem('header') || "[]").length > 0 ? JSON.parse(localStorage.getItem('header') || "[]") : []
@@ -83,18 +76,28 @@ function EditHeader() {
                     <h1> Edit header </h1>
                     <form className="m-2 p-2 bg-blue-200">
 
-                        <input type="text" value={title} placeholder="title" onChange={(e) => handleTitleChange(e)} className="m-2 p-2" /> <br />
-                        <input type="text" value={routes} placeholder="routes" onChange={(e) => handleRoutesChange(e)} className="m-2 p-2" /><br />
-                        <input type="checkbox" onChange={(e) => handleCheckedChange(e)} /><br />
+                        <input type="text"
+                            value={title}
+                            placeholder="title"
+                            onChange={(e) => handleTitleChange(e)}
+                            className="m-2 p-2" /> <br />
+                        <input
+                            type="text"
+                            value={routes}
+                            placeholder="routes"
+                            onChange={(e) => handleRoutesChange(e)}
+                            className="m-2 p-2" /><br />
+                        <input
+                            type="checkbox"
+                            onChange={(e) => handleCheckedChange(e)} /><br />
 
                         <input
-                            id="first-name"
                             className="m-2 p-2"
                             type="text"
-                            placeholder="link"
-                            name="link"
-                            value={link}
-                            onChange={handleLinkChange}
+                            placeholder="linkTitle"
+                            name="linkTitle"
+                            value={linkTitle}
+                            onChange={handleLinkTitleChange}
                         /><br />
 
                         <input
@@ -112,7 +115,6 @@ function EditHeader() {
                             type="checkbox"
                             placeholder="ischecked"
                             name="ischecked"
-                            // value={values.ischecked}
                             onChange={handleIscheckedChange}
                         /><br />
 

@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom"
 import Sidebar from "../../components/sidebar/sidebar";
 import HomeFooter from "./HomeFooter";
 
+//  this component only for test not use in app
 function EditFooter() {
     const navigate = useNavigate()
 

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 // import Footer from './components/Footer';
-import Header from './components/Header';
+// import Header from './components/Header';
 import Home from "./components/Home"
 // import Contact from "./components/Contact"
 // import About from "./components/About"
@@ -21,10 +21,8 @@ import AddHeader from './pages/Header/AddHeader';
 import EditHeader from './pages/Header/EditHeader';
 import HomeHeader from './pages/Header/HomeHeader';
 
-import Footer from './pages/footer/footer';
-
-import AddFooter from './pages/footer/AddFooter';
-import EditFooter from './pages/footer/EditFooter';
+// import AddFooter from './pages/footer/AddFooter';
+// import EditFooter from './pages/footer/EditFooter';
 import HomeFooter from './pages/footer/HomeFooter';
 import { AuthProvider } from './components/auth';
 import { RequireAuth } from './components/RequireAuth';
@@ -44,9 +42,7 @@ function App() {
 
       {/* <Header /> */}
       <div className='flex'>
-        <div>
-          {/* <Sidebar /> */}
-        </div>
+
         <div>
           <AuthProvider>
             <Routes>
@@ -57,7 +53,7 @@ function App() {
                 <Route path="/admin/HomePage" element={<RequireAuth><HomePage /></RequireAuth>} />
                 <Route path="/admin/HomeHeader" element={<RequireAuth><HomeHeader /></RequireAuth>} />
                 <Route path="/admin/AddHeader" element={<RequireAuth><AddHeader /></RequireAuth>} />
-                <Route path="/admin/EditHeader" element={<EditHeader />} />
+                <Route path="/admin/EditHeader" element={<RequireAuth><EditHeader /></RequireAuth>} />
 
                 <Route path="/admin/HomeTestimonial" element={<RequireAuth><HomeTestimonial /></RequireAuth>} />
                 <Route path="/admin/AddTestimonial" element={<RequireAuth><AddTestimonial /></RequireAuth>} />
@@ -67,17 +63,13 @@ function App() {
                 <Route path="/admin/HomeBanner" element={<RequireAuth><HomeBanner /></RequireAuth>} />
                 <Route path="/admin/AddBanner" element={<RequireAuth><AddBanner /></RequireAuth>} />
                 <Route path="/admin/EditBanner" element={<RequireAuth><EditBanner /></RequireAuth>} />
-
-
                 <Route path="/admin/HomeFooter" element={<RequireAuth><HomeFooter /></RequireAuth>} />
-                <Route path="/admin/AddFooter" element={<RequireAuth><AddFooter /></RequireAuth>} />
-                <Route path="/admin/EditFooter" element={<RequireAuth><EditFooter /></RequireAuth>} />
               </Route>
             </Routes>
           </AuthProvider>
         </div>
       </div>
-     
+
     </div>
   );
 }

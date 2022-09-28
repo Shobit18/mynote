@@ -4,14 +4,10 @@ import { Link } from 'react-router-dom';
 import Footer from "./Footer";
 import Header from "./Header";
 import Testimonial from "./Testimonial";
-// import
 
 function Home() {
   const getDataFromLocal = JSON.parse(localStorage.getItem("banner") || "[]");
-
-  console.log("getDataFromLocal:" + getDataFromLocal)
-  // const getConstant = JSON.parse(localStorage.getItem("constant") || "[]");
-  // const backgroundImage = `url(${getDataFromLocal.banner.bannerImage})`
+  // console.log("getDataFromLocal:" + getDataFromLocal)
   return (
     <div>
       <Header />

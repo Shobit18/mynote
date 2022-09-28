@@ -16,45 +16,23 @@ const Sidebar = () => {
         <ul>
           <p className="title">Dashboard</p>
           <li>
-            
-          
           </li>
-        <li>
-         <Link to="/admin/HomeHeader" className="title">Header</Link>
+          <li>
+            <Link to="/admin/HomeHeader" className="title">Header</Link>
           </li>
-            <li>
-          <Link to="/admin/HomePage" className="title">Home</Link>
-        </li>
-        <li>
-          <Link to="/admin/contact" className="title">Contact</Link>
-        </li>
+          <li>
+            <Link to="/admin/HomePage" className="title">Home</Link>
+          </li>
 
-          <p className="title">USER</p>
-        
-
-        <li>
-          
-          {/* <button
-        className="p-2 bg-green-200 rounded-md"
-        onClick={() => {
-          setModalOpen(true);
-        }}
-      >
-        Add Page
-      </button> */}
-
-<button 
-                onClick={() => {
-                    navigate('/admin/AddHeader')
-                }}
-                className ="rounded-md bg-blue-200 p-2"
-                 > ADD header Content </button>
-
-      {/* {modalOpen && <HeaderModal setOpenModal={setModalOpen} />} */}
-          </li>  
+          <li>
+            <button
+              onClick={() => {
+                navigate('/admin/AddHeader')
+              }}
+              className="rounded-md bg-blue-200 p-2"
+            > ADD header Content </button>
+          </li>
         </ul>
-
-
       </div>
     </div>
   );

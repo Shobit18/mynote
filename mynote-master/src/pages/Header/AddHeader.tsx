@@ -9,17 +9,11 @@ function AddHeader() {
     const [title, setTitle] = useState('');
     const [routes, setRoutes] = useState('');
     const [checked, setChecked] = useState(false);
-    const [link, setLink] = useState('');
+    const [linkTitle, setLinkTitle] = useState('');
     const [url, setUrl] = useState('');
     const [ischecked, setIschecked] = useState(false);
 
     const subData: any = [];
-    // const [values, setValues] = useState({
-    //     link: '',
-    //     url: '',
-    //     ischecked: '',
-    // });
-
     const handleTitleChange = (e: any) => {
         setTitle(e.target.value)
     }
@@ -30,14 +24,9 @@ function AddHeader() {
         setChecked(!checked)
     }
 
-    const handleLinkChange = (event: any) => {
+    const handleLinkTitleChange = (event: any) => {
 
-        setLink(event.target.value)
-        // setValues((values) => ({
-        //     ...values,
-        //     link: event.target.value,
-        // })
-        // );
+        setLinkTitle(event.target.value)
     };
 
     const handleUrlChange = (event: any) => {
@@ -50,15 +39,13 @@ function AddHeader() {
 
     };
 
-    subData.push({id: subData.length, link, url, ischecked })
+    subData.push({ id: subData.length, linkTitle, url, ischecked })
     const handleSubmit = (e: any) => {
-        // e.window.location.reload(true)
         console.log({ title, routes, checked })
 
         const _header = localStorage.getItem('header') && (localStorage.getItem('header') || "[]").length > 0 ? JSON.parse(localStorage.getItem('header') || "[]") : []
         // debugger
         localStorage.setItem('header', JSON.stringify([..._header, { id: _header.length, title, routes, subData, checked }]))
-        // console.log(localStorage.getItem())
         navigate('/admin/HomeHeader')
     }
 
@@ -67,7 +54,6 @@ function AddHeader() {
             <Header />
             <div className="flex">
                 <div>
-                    {/* <Header /> */}
                     <Sidebar />
                 </div>
                 <div>
@@ -75,37 +61,41 @@ function AddHeader() {
                     <h1> Adds header </h1>
 
                     <label>Title</label>
-                    <input type="text" value={title} onChange={(e) => handleTitleChange(e)} className="p-2 m-2 border-2" /> <br />
-                    <input type="checkbox" onChange={(e) => handleCheckedChange(e)} className="p-2 m-2" />   <br />
-                    <label>routes</label>
-                    <input type="text" value={routes} onChange={(e) => handleRoutesChange(e)} className="p-2 m-2 border-2" /><br />
-
                     <input
-                        id="first-name"
-                        className="form-field"
                         type="text"
-                        placeholder="link"
-                        name="link"
-                        // value={values.link}
-                        onChange={handleLinkChange}
-                    />
-
+                        value={title}
+                        onChange={(e) => handleTitleChange(e)}
+                        className="p-2 m-2 border-2" /> <br />
                     <input
-                        id="last-name"
-                        className="form-field"
+                        type="checkbox"
+                        onChange={(e) => handleCheckedChange(e)}
+                        className="p-2 m-2" />   <br />
+                    <label>routes</label>
+                    <input type="text"
+                        value={routes}
+                        onChange={(e) => handleRoutesChange(e)}
+                        className="p-2 m-2 border-2" /><br />
+                    <input
+                        className="m-2 p-2"
+                        type="text"
+                        placeholder="linkTitle"
+                        name="linkTitle"
+
+                        onChange={handleLinkTitleChange}
+                    />
+                    <input
+                        className="m-2 p-2"
                         type="text"
                         placeholder="url"
                         name="url"
-                        // value={values.url}
                         onChange={handleUrlChange}
                     />
                     <input
                         id="ischecked"
-                        className="form-field"
+                        className="m-2 p-2"
                         type="checkbox"
                         placeholder="ischecked"
                         name="ischecked"
-                        // value={values.ischecked}
                         onChange={handleIscheckedChange}
                     />
 

@@ -4,7 +4,7 @@ import constant from "../contant";
 
 function AddToLocal() {
   const data = localStorage.setItem('constant', JSON.stringify(constant))
-  // console.log(data)
+  
   return (
     <div>
         {/* <h1>Hello: {data}</h1> */}

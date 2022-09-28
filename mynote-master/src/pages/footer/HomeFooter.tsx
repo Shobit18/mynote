@@ -4,24 +4,12 @@ import { useNavigate } from "react-router-dom"
 function HomeFooter() {
     const navigate = useNavigate()
     const [footer, setFooter] = useState([]);
-    // const [image, setImage] = useState('');
-    // const [description, setDescription] = useState('');
+
 
     useEffect(() => {
         const footer = localStorage.getItem('header') || "";
         setFooter(JSON.parse(footer || "[]"));
     }, [footer])
-
-    const handleDelete = (footerOutIndex: any) => {
-        const _header = footer.filter((footer: any, footerInIndex: any) => {
-            if (footerInIndex !== footerOutIndex) {
-                return footer
-            }
-        })
-        console.log(_header)
-        setFooter(_header)
-        localStorage.setItem('_header', JSON.stringify(_header))
-    }
 
     const handleEdit = (footerIndex: any) => {
         localStorage.setItem('editIndex', footerIndex)
@@ -38,7 +26,6 @@ function HomeFooter() {
             </div>
             <div className="flex">
                 <div>
-                    {/* <Sidebar /> */}
                 </div>
                 <div>
 
@@ -54,17 +41,14 @@ function HomeFooter() {
                     <h1 className="font-bold m-2">Menu</h1>
 
                     <div className=" border-2 ">
-                        <div className="w-screen border-2 flex ">
-
-                            <h1>Column</h1>
-
+                        <div className="w-screen border-2 grid grid-cols-3 ">
                             {
                                 footer && footer.length > 0 ?
                                     footer.map((header: any, headerIndex: any) => {
                                         return (
                                             <div className="w-1/2  m-2 ">
                                                 <h1 className="font-bold"> {header.title} </h1>
-                                                {/* Value: {header.values.url} */}
+                                                
                                                 <div className=" m-2 border-2 ">
                                                     {
 
@@ -72,7 +56,7 @@ function HomeFooter() {
                                                             return (
                                                                 <div className="m-2 p-2 ">
                                                                     <div className="m-2 p-2 ">
-                                                                        Link: {value.link}</div>
+                                                                        LinkTitle: {value.linkTitle}</div>
                                                                     <div className="m-2 p-2   w-1/2">
                                                                         Url: {value.url}
                                                                     </div>

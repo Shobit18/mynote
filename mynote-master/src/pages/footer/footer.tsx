@@ -4,11 +4,9 @@ import HomeFooter from "./HomeFooter";
 
 
 function Footer() {
-  // const getfooterData = JSON.parse(localStorage.getItem("header") || "[]");
   const currentDate = new Date().getFullYear();
-  // const getDataFromLocal = JSON.parse(localStorage.getItem("constant") || "[]");
   return (
-    <div className=" bottom-0  ">
+    <div className=" bottom-0 ">
       <hr></hr>
       <h1>Footer</h1>
       
